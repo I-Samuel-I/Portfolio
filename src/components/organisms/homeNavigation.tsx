@@ -3,12 +3,15 @@
 import { useState } from "react";
 import HomeNavBtn from "../atoms/homeNavBtn";
 import WindowAbout from "../templates/windowAbout";
+import { useDraggableWindow } from "../../hooks/useDraggableWindow";
 
 type NavSection = "about" | "projects" | "contact";
 
 export default function HomeNavigation() {
     const [activeSection, setActiveSection] = useState<NavSection | null>(null);
+    const isWindowOpen = activeSection !== null;
 
+    const { windowProps, dragHandleProps, isDragging } = useDraggableWindow(isWindowOpen)
     return (
         <>
             <nav className="mt-10 flex w-full max-w-[154px] flex-col gap-6">
@@ -19,16 +22,27 @@ export default function HomeNavigation() {
 
             {activeSection && (
 
-                <section className="fixed inset-0 z-50 grid place-items-center ">
-                    <div className="relative flex flex-col w-[850px] h-[900px] rounded-md border border-zinc-700 bg-[#1D1922]  text-zinc-50">
-                        <div className="flex items-center justify-between pb-2 text-2xl p-5">
-                            <h1>about</h1>
-                            <button onClick={() => setActiveSection(null)}>[ x ]</button>
+                <section className="fixed inset-0 z-50 overflow-hidden">
+                    <div
+                        {...windowProps}
+                        className="absolute flex h-[900px] max-h-[calc(100vh-24px)] w-[850px] max-w-[calc(100vw-24px)] flex-col overflow-hidden rounded-md border border-zinc-700 bg-[#1D1922] text-zinc-50">
+                        <div
+                            {...dragHandleProps}
+                            className={`flex shrink-0 select-none touch-none items-center justify-between p-5 pb-2 text-2xl ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}>
+
+
+                             <h1>{activeSection}</h1>
+                            <button
+                                onPointerDown={(event) => event.stopPropagation()}
+                                onClick={() => setActiveSection(null)}
+                            >
+                                [ x ]
+                            </button>
                         </div>
                         <div className="relative min-h-0 flex-1 p-3">
-                             {activeSection === "about" && <WindowAbout />}
+                            {activeSection === "about" && <WindowAbout />}
                         </div>
-                       
+
                     </div>
 
                 </section>
