@@ -5,6 +5,7 @@ import HomeNavBtn from "../atoms/homeNavBtn";
 import WindowAbout from "../templates/windowAbout";
 import { useDraggableWindow } from "../../hooks/useDraggableWindow";
 import WindowProject from "../templates/windowProject";
+import WindowContact from "../templates/windowContact";
 
 type NavSection = "about" | "projects" | "contact";
 
@@ -58,6 +59,7 @@ export default function HomeNavigation() {
                         <div className="relative min-h-0 flex-1 p-3">
                             {activeSection.includes("about") && <WindowAbout />}
                             {activeSection.includes("projects") && <WindowProject />}
+                            {activeSection.includes("contact") && <WindowContact />}
                         </div>
                     </div>
                 </section>
