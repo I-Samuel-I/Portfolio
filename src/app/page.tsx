@@ -1,6 +1,8 @@
 ﻿import DarkMode from "../components/atoms/darkMode";
 import HomeNavBtn from "../components/atoms/homeNavBtn";
 import LanguageBtn from "../components/atoms/languageSwitcher";
+import Links from "../components/atoms/links";
+import MusicButton from "../components/atoms/musicButton";
 import HomeNavigation from "../components/organisms/homeNavigation";
 
 
@@ -43,8 +45,9 @@ export default function Home() {
           <div className="hidden min-h-[320px] lg:block" aria-hidden="true" />
         </section>
 
-        <footer className="flex h-12 shrink-0 items-center justify-between border-t border-zinc-200/75 px-10 sm:px-12">
-
+        <footer className="flex h-14 shrink-0 items-center justify-between border-t border-zinc-200/75 px-10 sm:px-12">
+          <MusicButton/>
+          <Links/>
         </footer>
       </main>
     </div>
