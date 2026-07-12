@@ -5,7 +5,6 @@ import MoonIcon from "@/src/assets/icons/moon.svg"
 import SunIcon from "@/src/assets/icons/sun.svg"
 import { useState } from "react"
 
-
 export default function DarkMode() {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [isHolding, setIsHolding] = useState(false)

@@ -1,5 +1,6 @@
 ﻿import DarkMode from "../components/atoms/darkMode";
 import HomeNavBtn from "../components/atoms/homeNavBtn";
+import LanguageBtn from "../components/atoms/languageSwitcher";
 import HomeNavigation from "../components/organisms/homeNavigation";
 
 
@@ -12,7 +13,10 @@ export default function Home() {
           <span className="text-xl font-medium tracking-normal text-zinc-100">
             MoonThread
           </span>
-          <DarkMode/>
+          <div className="flex flex-row gap-5 mr-5">
+            <LanguageBtn />
+            <DarkMode />
+          </div>
         </header>
 
         <section className="grid flex-1 grid-cols-1 gap-10 px-16 py-24  lg:grid-cols-[minmax(280px,0.78fr)_minmax(360px,1fr)]">
