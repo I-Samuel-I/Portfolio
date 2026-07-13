@@ -1,8 +1,8 @@
 ﻿import DarkMode from "../components/atoms/darkMode";
-import HomeNavBtn from "../components/atoms/homeNavBtn";
 import LanguageBtn from "../components/atoms/languageSwitcher";
 import Links from "../components/atoms/links";
 import MusicButton from "../components/atoms/musicButton";
+import BatPhysicsPrototype from "../components/organisms/batPhysics";
 import HomeNavigation from "../components/organisms/homeNavigation";
 
 
@@ -42,7 +42,10 @@ export default function Home() {
             <HomeNavigation />
           </div>
 
-          <div className="hidden min-h-[320px] lg:block" aria-hidden="true" />
+        <div className="absolute borderbottom-96 right-40"><BatPhysicsPrototype /></div>
+
+            
+          
         </section>
 
         <footer className="flex h-14 shrink-0 items-center justify-between border-t border-zinc-200/75 px-10 sm:px-12">
