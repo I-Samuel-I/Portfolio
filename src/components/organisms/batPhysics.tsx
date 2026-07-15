@@ -16,6 +16,8 @@ export default function BatPhysicsPrototype() {
       Render,
       Runner,
       Bodies,
+      Body,
+      Events,
       Constraint,
       Composite,
       Mouse,
@@ -33,16 +35,21 @@ export default function BatPhysicsPrototype() {
 
     const leftAnchorPoint = {
       x: width / 2 - BOX_SIZE / 2,
-      y: 100,
+      y: 0,
     };
     const rightAnchorPoint = {
       x: width / 2 + BOX_SIZE / 2,
-      y: 100,
+      y: 0,
+    };
+
+    const squareCenter = {
+      x: width / 2,
+      y: height / 2,
     };
 
     const square = Bodies.rectangle(
-      width / 2,
-      280,
+      squareCenter.x,
+      squareCenter.y,
       BOX_SIZE,
       BOX_SIZE,
       {
@@ -66,7 +73,7 @@ export default function BatPhysicsPrototype() {
         x: -BOX_SIZE / 2,
         y: -BOX_SIZE / 2,
       },
-      length: 250,
+      length: 350,
       stiffness: 0.9,
       damping: 0.04,
       render: {
@@ -82,7 +89,7 @@ export default function BatPhysicsPrototype() {
         x: BOX_SIZE / 2,
         y: -BOX_SIZE / 2,
       },
-      length: 250,
+      length: 350,
       stiffness: 0.9,
       damping: 0.04,
       render: {
@@ -104,6 +111,39 @@ export default function BatPhysicsPrototype() {
       },
     });
 
+    const minSquareCenterY = BOX_SIZE / 2 + 125;
+
+    const limitDragTarget = () => {
+      if (mouseConstraint.body !== square) return;
+
+      const dragTarget = mouseConstraint.constraint.pointA;
+      const grabOffset = mouseConstraint.constraint.pointB;
+
+      if (!dragTarget || !grabOffset) return;
+
+      dragTarget.y = Math.max(dragTarget.y, minSquareCenterY + grabOffset.y);
+    };
+
+    const keepSquareInside = () => {
+      if (mouseConstraint.body !== square) return;
+
+      if (square.position.y < minSquareCenterY) {
+        Body.setPosition(square, {
+          x: square.position.x,
+          y: minSquareCenterY,
+        });
+
+        Body.setVelocity(square, {
+          x: square.velocity.x * 0.4,
+          y: 0,
+        });
+
+        Body.setAngularVelocity(square, square.angularVelocity * 0.5);
+      }
+    };
+
+    Events.on(engine, "beforeUpdate", limitDragTarget);
+    Events.on(engine, "afterUpdate", keepSquareInside);
     Composite.add(engine.world, [square, leftRope, rightRope, mouseConstraint]);
 
     const render = Render.create({
@@ -121,11 +161,13 @@ export default function BatPhysicsPrototype() {
     render.mouse = mouse;
 
     const runner = Runner.create();
-
     Runner.run(runner, engine);
     Render.run(render);
 
     return () => {
+      Events.off(engine, "beforeUpdate", limitDragTarget);
+      Events.off(engine, "afterUpdate", keepSquareInside);
+
       Render.stop(render);
       Runner.stop(runner);
       Composite.clear(engine.world, false);
@@ -139,7 +181,7 @@ export default function BatPhysicsPrototype() {
   return (
     <div
       ref={sceneRef}
-      className="relative h-full min-h-130 w-full overflow-hidden cursor-grab"
+      className="relative h-full w-full cursor-grab"
       aria-label="Protótipo físico do morcego"
     />
   );

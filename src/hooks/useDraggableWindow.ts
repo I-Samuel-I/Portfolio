@@ -56,9 +56,10 @@ export function useDraggableWindow(isOpen: boolean) {
     if (!isDragging || !windowRef.current) return;
 
     const rect = windowRef.current.getBoundingClientRect();
+    const bottomOverflow = 700;
 
     const maxX = Math.max(0, window.innerWidth - rect.width);
-    const maxY = Math.max(0, window.innerHeight - rect.height);
+    const maxY = Math.max(0, window.innerHeight - rect.height + bottomOverflow);
 
     setPosition({
       x: clamp(event.clientX - dragOffsetRef.current.x, 0, maxX),

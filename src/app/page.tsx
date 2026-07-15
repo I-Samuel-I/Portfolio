@@ -10,8 +10,8 @@ import HomeNavigation from "../components/organisms/homeNavigation";
 export default function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#17141D]">
-      <main className="flex min-h-[925px] w-full max-w-[1850px] flex-col overflow-hidden rounded-[22px] border border-zinc-200/75 bg-[#1D1922] shadow-2xl shadow-black/50">
-        <header className="flex h-[72px] shrink-0 items-center justify-between border-b border-zinc-200/75 px-8 sm:px-9">
+      <main className="relative flex min-h-[925px] w-full max-w-[1850px] flex-col overflow-hidden rounded-[22px] border border-zinc-200/75 bg-[#1D1922] shadow-2xl shadow-black/50">
+        <header className="flex z-10 h-[72px] shrink-0 items-center justify-between border-b border-zinc-200/75 px-8 sm:px-9">
           <span className="text-xl font-medium tracking-normal text-zinc-100">
             MoonThread
           </span>
@@ -20,6 +20,10 @@ export default function Home() {
             <DarkMode />
           </div>
         </header>
+
+        <div className="pointer-events-auto absolute border top-[72px] right-0 bottom-14 z-0 w-[70%]">
+          <BatPhysicsPrototype />
+        </div>
 
         <section className="grid flex-1 grid-cols-1 gap-10 px-16 py-24  lg:grid-cols-[minmax(280px,0.78fr)_minmax(360px,1fr)]">
           <div className="flex  flex-col justify-start pt-5 sm:pt-3">
@@ -41,16 +45,11 @@ export default function Home() {
 
             <HomeNavigation />
           </div>
-
-        <div className="absolute borderbottom-96 right-40"><BatPhysicsPrototype /></div>
-
-            
-          
         </section>
 
         <footer className="flex h-14 shrink-0 items-center justify-between border-t border-zinc-200/75 px-10 sm:px-12">
-          <MusicButton/>
-          <Links/>
+          <MusicButton />
+          <Links />
         </footer>
       </main>
     </div>
