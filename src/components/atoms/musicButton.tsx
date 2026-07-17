@@ -27,7 +27,7 @@ export default function MusicButton() {
                 aria-pressed={isMuted}
                 className={` transition-all duration-200 cursor-pointer
                 ${isHolding ? "scale-80" : "scale-100"}`}>
-                <Icon className="h-8.5 w-8.5 text-white" aria-hidden="true" />
+                <Icon className="h-8.5 w-8.5 text-text-main" aria-hidden="true" />
             </button>
         </>
     )

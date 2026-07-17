@@ -1,0 +1,8 @@
+@theme {
+  --shadow-window: 0 24px 70px var(--shadow-window-color);
+  --shadow-window-inset: inset 0 0 32px rgb(0 0 0 / 0.36);
+  --shadow-panel-inset: inset 0 0 0 1px rgb(255 255 255 / 0.08);
+  --shadow-panel: 4px 4px 0 var(--shadow-control-color);
+  --shadow-chip: 3px 3px 0 var(--shadow-control-color);
+  --shadow-nav-button: inset 0 0 12px rgb(255 255 255 / 0.05), 0 0 0 1px rgb(0 0 0 / 0.8);
+}

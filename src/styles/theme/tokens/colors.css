@@ -1,0 +1,28 @@
+@theme inline {
+  --color-background: var(--background);
+  --color-app-bg: var(--background-secondary);
+  --color-shell: var(--background-shell);
+  --color-shell-header: var(--background-shell-header);
+
+  --color-window: var(--background-window);
+  --color-window-header: var(--background-window-header);
+  --color-window-panel: var(--background-window-panel);
+  --color-window-panel-alt: var(--background-window-panel-alt);
+  --color-window-input: var(--background-window-input);
+
+  --color-text-main: var(--text-color);
+  --color-text-heading: var(--text-heading);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+
+  --color-highlight: var(--highlight-text);
+  --color-highlight-hover: var(--highlight-text-hover);
+
+  --color-border-main: var(--border-color);
+  --color-border-muted: var(--border-muted);
+  --color-border-soft: var(--border-soft);
+  --color-border-hover: var(--btn-border-color-hover);
+
+  --color-button-bg: var(--button-bg);
+  --color-button-bg-hover: var(--button-bg-hover);
+}

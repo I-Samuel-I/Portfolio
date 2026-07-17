@@ -1,0 +1,44 @@
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --background: #1d1922;
+  --background-secondary: #121014;
+  --background-shell: #1d1922;
+  --background-shell-header: #171717;
+  --background-window: #1d1922;
+  --background-window-header: #0f0f10;
+  --background-window-panel: #24202a;
+  --background-window-panel-alt: #2a2531;
+  --background-window-input: #171717;
+
+  --text-color: #ffffff;
+  --text-heading: #ffffff;
+  --text-muted: #d9d3e3;
+  --text-subtle: rgb(255 255 255 / 0.72);
+
+  --highlight-text: #9b7ac8;
+  --highlight-text-hover: #b293df;
+
+  --border-color: rgb(255 255 255 / 0.78);
+  --border-muted: rgb(255 255 255 / 0.28);
+  --border-soft: rgb(255 255 255 / 0.14);
+  --btn-border-color-hover: #9b7ac8;
+
+  --button-bg: #745f91;
+  --button-bg-hover: #8b70ad;
+
+  --scrollbar-thumb: #745f91;
+  --scrollbar-thumb-hover: #9b7ac8;
+
+  --shadow-window-color: rgb(0 0 0 / 0.48);
+  --shadow-control-color: rgb(0 0 0 / 0.32);
+
+  --backgroundSecondary: var(--background-secondary);
+  --backgroundHeaderWindow: var(--background-window-header);
+  --backgroundWindow: var(--background-window);
+  --textColor: var(--text-color);
+  --highlightText: var(--highlight-text);
+  --borderColor: var(--border-color);
+  --btnBorderColorHover: var(--btn-border-color-hover);
+}

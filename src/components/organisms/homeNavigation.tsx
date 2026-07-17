@@ -3,6 +3,7 @@
 import { useState } from "react";
 import HomeNavBtn from "../atoms/homeNavBtn";
 import DraggableWindow from "./draggableWindow";
+import { AnimatePresence } from "motion/react";
 
 type NavSection = "about" | "projects" | "contact";
 
@@ -13,7 +14,7 @@ export default function HomeNavigation() {
     function openWindow(section: NavSection) {
         setActiveWindow((current) => {
             if (current.includes(section)) {
-               return current;
+                return current;
             }
             return [...current, section];
         })
@@ -32,19 +33,19 @@ export default function HomeNavigation() {
                 <HomeNavBtn onClick={() => openWindow("projects")}> projects</HomeNavBtn>
                 <HomeNavBtn onClick={() => openWindow("contact")}> contact</HomeNavBtn>
             </nav>
-
-            {activeWindow.length > 0 && (
-
                 <section className="fixed pointer-events-none fixed inset-0 z-50 overflow-hidden inset-0 z-50 overflow-hidden">
-                    {activeWindow.map((title) => (
-                        <DraggableWindow
-                            key={title}
-                            title={title}
-                            onClose={() => closeWindow(title)}
-                        />
-                    ))}
+                    <AnimatePresence>
+                        {activeWindow.map((title) => (
+                            <DraggableWindow
+                                key={title}
+                                title={title}
+                                onClose={() => closeWindow(title)}
+                            />
+                        ))}
+                    </AnimatePresence>
+
                 </section>
-            )}
+         
         </>
     )
 

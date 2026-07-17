@@ -1,11 +1,11 @@
 import Image from "next/image";
 import ProfilePic from "../../assets/images/me.png";
-
+import HtmlTag from "@/src/assets/icons/source-code.svg"
 
 export default function WindowAbout() {
     return (
-        <section className="h-full w-full overflow-y-auto rounded-md bg-[#DDCCC4] p-6 text-[#2a2328] shadow-[inset_0_0_32px_rgba(42,35,40,0.24)]">
-            <article className="grid gap-8 border-b border-dashed border-[#7a6172]/70 pb-7 lg:grid-cols-[220px_1fr]">
+        <section className="scroll-css h-full w-full overflow-y-auto rounded-md bg-window p-6 text-text-main shadow-window-inset">
+            <article className="grid gap-8 pb-7 lg:grid-cols-[220px_1fr]">
                 <div className="mx-auto flex w-full max-w-[220px] items-center justify-center">
                     <Image
                         src={ProfilePic}
@@ -15,102 +15,86 @@ export default function WindowAbout() {
                         className="h-47.5 w-47.5 scale-130 rounded-full object-cover"
                     />
                 </div>
-                <div className="flex w-full flex-col justify-be">
+                <div className="flex w-full flex-col">
 
-                    <h1 className="text-4xl font-bold leading-none tracking-normal text-[#1f1a1f]">
-                        Samuel Gomes.
+                    <h1 className="text-4xl font-bold leading-none tracking-normal text-text-heading">
+                        hi! i´m samuel,
                     </h1>
-                    <div className="mt-2 h-0.75 w-64 max-w-full bg-[#745f91]" />
-                    <h2 className="mt-4 text-lg font-bold text-[#745f91]">
-                        web developer, mobile developer e ux/ui designer.
+                    <div className="mt-2 h-0.75 w-64 max-w-full bg-highlight" />
+                    <h2 className="mt-4 text-lg font-bold text-highlight">
+                        web developer & mobile developer...
                     </h2>
 
-                    <div className="mt-4 max-w-xl space-y-4 text-base leading-relaxed text-[#2d252a]">
+                    <div className="mt-4 max-w-xl space-y-4 text-base leading-relaxed text-text-muted">
                         <p>
-                            lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                            ut aliquip ex ea commodo consequat.
+                            I&apos;m a full-stack web and mobile developer with 1 year of professional experience.
+                            I enjoy building different kinds of systems, thinking about both the technical
+                            side and the experience of the people who will use them, always looking to turn
+                            problems into simple, useful, and well-built solutions.
                         </p>
                         <p>
-                            lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                            ut aliquip ex ea commodo consequat.
+                            In my personal projects, I like to bring a more handcrafted feeling to the interface. I&apos;m
+                            interested in hand-drawn elements, small imperfections, and visual details that make each
+                            project feel built with care, intention, and personality... I think that comes, in part, from
+                            my love for stop-motion films.
                         </p>
                     </div>
                 </div>
             </article>
-
-            <article className="grid gap-5 border-b border-dashed border-[#7a6172]/70 py-6 md:grid-cols-3">
-                <div className="rounded-md border border-[#2a2328]/50 bg-[#ddccc4] p-5 shadow-[4px_4px_0_rgba(42,35,40,0.16)]">
-                    <p className="mb-4 text-2xl text-[#745f91]">&lt;/&gt;</p>
-                    <h3 className="text-lg font-bold text-[#745f91]">web dev</h3>
-                    <ul className="mt-3 list-disc space-y-1 pl-5 text-sm leading-relaxed">
-                        <li>desenvolvimento web</li>
-                        <li>aplicacoes e sistemas</li>
-                        <li>performance e boas praticas</li>
-                    </ul>
+            <article className="flex flex-row  gap-4 border-b  border-border-muted py-6">
+                <div className="inline-flex w-full h-12  items-center justify-center gap-3 rounded-md border-2 border-border-muted bg-window-panel px-4 text-sm font-bold text-text-main shadow-chip">
+                    <HtmlTag className="h-7 w-7 text-highlight" />
+                    <span>web dev</span>
                 </div>
 
-                <div className="rounded-md border border-[#2a2328]/50 bg-[#ddccc4] p-5 shadow-[4px_4px_0_rgba(42,35,40,0.16)]">
-                    <p className="mb-4 text-2xl text-[#745f91]">[]</p>
-                    <h3 className="text-lg font-bold text-[#745f91]">mobile dev</h3>
-                    <ul className="mt-3 list-disc space-y-1 pl-5 text-sm leading-relaxed">
-                        <li>aplicativos mobile</li>
-                        <li>react native e expo</li>
-                        <li>interfaces responsivas</li>
-                    </ul>
+                <div className="inline-flex h-12 w-full items-center justify-center gap-3 rounded-md border-2 border-border-muted bg-window-panel px-4 text-sm font-bold text-text-main shadow-chip">
+                    <span className="text-lg leading-none text-highlight">[]</span>
+                    <span>mobile dev</span>
                 </div>
 
-                <div className="rounded-md border border-[#2a2328]/50 bg-[#ddccc4] p-5 shadow-[4px_4px_0_rgba(42,35,40,0.16)]">
-                    <p className="mb-4 text-2xl text-[#745f91]">UX</p>
-                    <h3 className="text-lg font-bold text-[#745f91]">ux/ui</h3>
-                    <ul className="mt-3 list-disc space-y-1 pl-5 text-sm leading-relaxed">
-                        <li>design de interfaces</li>
-                        <li>prototipacao</li>
-                        <li>experiencia do usuario</li>
-                    </ul>
+                <div className="inline-flex h-12  w-full items-center justify-center gap-3 rounded-md border-2 border-border-muted bg-window-panel px-4 text-sm font-bold text-text-main shadow-chip">
+                    <span className="text-sm font-black leading-none text-highlight">UX</span>
+                    <span>ux/ui design</span>
                 </div>
             </article>
 
-            <article className="grid gap-6 py-6 md:grid-cols-[1.15fr_0.8fr_1fr]">
-                <div className="md:border-r md:border-dashed md:border-[#7a6172]/70 md:pr-6">
-                    <h3 className="mb-4 text-lg font-bold text-[#745f91]">formação</h3>
-                    <div className="space-y-5 text-sm leading-relaxed">
+            <article className="grid gap-6 py-6 md:grid-cols-3">
+                <div className="min-h-56 rounded-md border border-border-muted bg-window-panel p-5 shadow-panel">
+                    <h3 className="mb-5 text-lg font-bold text-highlight">education</h3>
+                    <div className="space-y-5 text-sm leading-relaxed text-text-muted">
                         <div>
-                            <p className="font-bold">Tecnico em Informática</p>
-                            <p className="text-[#745f91]">Instituto Federal da Paraiba</p>
+                            <p className="font-bold text-text-main">Computer Technician</p>
+                            <p className="text-highlight">Federal Institute of Paraiba</p>
                         </div>
                         <div>
-                            <p className="font-bold">Analise e Desenvolvimento de Sistemas</p>
-                            <p className="text-[#745f91]">UNIFIP Centro Universitario</p>
+                            <p className="font-bold text-text-main">Systems Analysis and Development</p>
+                            <p className="text-highlight">UNIFIP University Center</p>
                         </div>
                     </div>
                 </div>
 
-                <div className="md:border-r md:border-dashed md:border-[#7a6172]/70 md:pr-6">
-                    <h3 className="mb-4 text-lg font-bold text-[#745f91]">idiomas</h3>
-                    <ul className="list-disc space-y-3 pl-5 text-sm leading-relaxed">
+                <div className="min-h-56 rounded-md border border-border-muted bg-window-panel p-5 shadow-panel">
+                    <h3 className="mb-5 text-lg font-bold text-highlight">languages</h3>
+                    <ul className="list-disc space-y-3 pl-5 text-sm leading-relaxed text-text-muted">
                         <li>
-                            Portugues
-                            <span className="block text-[#745f91]">Fluente</span>
+                            Portuguese
+                            <span className="block text-highlight">Fluent</span>
                         </li>
                         <li>
-                            Ingles
-                            <span className="block text-[#745f91]">Intermediario</span>
+                            English
+                            <span className="block text-highlight">Intermediate</span>
                         </li>
                     </ul>
                 </div>
 
-                <div>
-                    <h3 className="mb-4 text-lg font-bold text-[#745f91]">interesses</h3>
-                    <ul className="list-disc space-y-1 pl-5 text-sm leading-relaxed">
-                        <li>UX/UI design</li>
-                        <li>Jogos indie</li>
-                        <li>Ilustracao digital</li>
-                        <li>Interfaces criativas</li>
-                        <li>Narrativas e personagens</li>
+                <div className="min-h-56 rounded-md border border-border-muted bg-window-panel p-5 shadow-panel">
+                    <h3 className="mb-5 text-lg font-bold text-highlight">interests</h3>
+                    <ul className="list-disc space-y-1 pl-5 text-sm leading-relaxed text-text-muted">
+                        <li>Indie games</li>
+                        <li>Digital illustration</li>
+                        <li>Volleyball</li>
+                        <li>Playing piano</li>
+                        <li>Steampunk and horror themes</li>
                     </ul>
                 </div>
             </article>

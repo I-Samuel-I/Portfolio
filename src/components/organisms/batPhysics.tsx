@@ -26,6 +26,13 @@ export default function BatPhysicsPrototype() {
 
     const width = sceneRef.current.clientWidth || 600;
     const height = sceneRef.current.clientHeight || 520;
+    const rootStyles = getComputedStyle(document.documentElement);
+    const themeColor = (name: string, fallback: string) => {
+      return rootStyles.getPropertyValue(name).trim() || fallback;
+    };
+    const squareFill = themeColor("--background-window-panel", "#24202a");
+    const squareStroke = themeColor("--highlight-text", "#9b7ac8");
+    const ropeStroke = themeColor("--border-muted", "rgba(255, 255, 255, 0.28)");
 
     const engine = Engine.create();
 
@@ -58,8 +65,8 @@ export default function BatPhysicsPrototype() {
         frictionAir: 0.02,
         restitution: 0.2,
         render: {
-          fillStyle: "#f8fafc",
-          strokeStyle: "#a855f7",
+          fillStyle: squareFill,
+          strokeStyle: squareStroke,
           lineWidth: 2,
         },
       }
@@ -77,7 +84,7 @@ export default function BatPhysicsPrototype() {
       stiffness: 0.9,
       damping: 0.04,
       render: {
-        strokeStyle: "#e5e7eb",
+        strokeStyle: ropeStroke,
         lineWidth: 2,
       },
     });
@@ -93,7 +100,7 @@ export default function BatPhysicsPrototype() {
       stiffness: 0.9,
       damping: 0.04,
       render: {
-        strokeStyle: "#e5e7eb",
+        strokeStyle: ropeStroke,
         lineWidth: 2,
       },
     });
