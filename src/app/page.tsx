@@ -5,12 +5,11 @@ import MusicButton from "../components/atoms/musicButton";
 import BatPhysicsPrototype from "../components/organisms/batPhysics";
 import HomeNavigation from "../components/organisms/homeNavigation";
 
-
-
 export default function Home() {
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-app-bg">
-      <main className="relative flex min-h-[925px] w-full max-w-[1850px] flex-col overflow-hidden rounded-[22px] border border-border-main bg-shell shadow-2xl shadow-black/50">
+      <main className="relative flex min-h-[940px] w-full max-w-[1850px] flex-col overflow-hidden rounded-[22px] border border-border-main bg-shell shadow-2xl shadow-black/50">
         <header className="z-10 flex h-[72px] shrink-0 items-center justify-between border-b border-border-muted bg-shell-header px-8 sm:px-9">
           <span className="text-xl font-medium tracking-normal text-text-main">
             MoonThread

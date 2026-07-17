@@ -2,6 +2,7 @@
 
 import LanguageIcon from "@/src/assets/icons/earth.svg"
 import { useState } from "react"
+import { sounds } from "../../data/sounds"
 
 export default function LanguageBtn() {
     const [moreOptions, setMoreOptions] = useState(false);
@@ -11,12 +12,20 @@ export default function LanguageBtn() {
     const toggleOptions = () => {
         setMoreOptions((current) => !current)
     }
+    const playOpenSound = () => {
+        const audio = new Audio(sounds.openWindow)
+        audio.volume = 0.45
+        audio.play();
+    }
 
     return (
         <div className="relative flex items-center ">
             <button
                 type="button"
-                onClick={toggleOptions}
+                onClick={() => {
+                    playOpenSound();
+                    toggleOptions();
+                }}
                 onPointerDown={() => setIsHolding(true)}
                 onPointerUp={() => setIsHolding(false)}
                 onPointerLeave={() => setIsHolding(false)}

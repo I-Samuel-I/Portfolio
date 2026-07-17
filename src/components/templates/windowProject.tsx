@@ -1,6 +1,9 @@
 import { projectsFilters, projects, techStacks, extraLinks } from "../../data/project";
 
 export default function WindowProject() {
+
+    
+
     return (
         <section className="scroll-css h-full w-full overflow-y-auto rounded-md bg-window p-6 text-text-main shadow-window-inset">
             <header className="mb-7 grid gap-5 md:grid-cols-[1fr_220px] md:items-start">

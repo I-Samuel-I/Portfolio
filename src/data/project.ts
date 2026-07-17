@@ -1,3 +1,6 @@
+import Screen01 from "../assets/images/Project-Screen01.png";
+import Screen02 from "../assets/images/Project-Screen02.png";
+
 export const projectsFilters = ["all", "web", "mobile"];
 
 export const extraLinks = [
@@ -97,15 +100,17 @@ export const techStacks = [
 export const projects = [
   {
     id: 1,
-    title: "Midnight Rose",
+    title: "GestIO",
     description: "Test",
-    image: "teste",
+    image: Screen02,
+    link: "https://github.com/Projects-Poran/Gestio",
   },
   {
     id: 2,
     title: "Midnight Rosee",
     description: "Test",
-    image: "teste",
+    image: Screen01,
+    link: "https://midnight-rose.vercel.app/",
   },
   {
     id: 3,

@@ -3,11 +3,17 @@
 import HeadphoneMuteIcon from "@/src/assets/icons/headphone-mute.svg"
 import MusicIcon from "@/src/assets/icons/music-note-square.svg"
 import { useState } from "react"
+import { sounds } from "../../data/sounds";
 
 export default function MusicButton() {
     const [isMuted, setIsMuted] = useState(true);
     const [isHolding, setIsHolding] = useState(false)
 
+    function playOpenSound() {
+        const audio = new Audio(sounds.openWindow)
+        audio.volume = 0.45
+        audio.play();
+    }
 
     const toggleMusic = () => {
         setIsMuted((current) => !current)
@@ -22,7 +28,10 @@ export default function MusicButton() {
                 onMouseDown={() => setIsHolding(true)}
                 onMouseUp={() => setIsHolding(false)}
                 onPointerLeave={() => setIsHolding(false)}
-                onClick={toggleMusic}
+                onClick={()=>{
+                    toggleMusic();
+                    playOpenSound();
+                }}
                 aria-label={isMuted ? "Ativar musica" : "Desativar musica"}
                 aria-pressed={isMuted}
                 className={` transition-all duration-200 cursor-pointer

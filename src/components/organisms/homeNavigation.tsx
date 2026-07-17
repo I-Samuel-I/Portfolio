@@ -9,7 +9,7 @@ type NavSection = "about" | "projects" | "contact";
 
 export default function HomeNavigation() {
     const [activeWindow, setActiveWindow] = useState<NavSection[]>([]);
-
+    const [focusedWindow, setFocusedWindow] = useState<NavSection | null>(null);
 
     function openWindow(section: NavSection) {
         setActiveWindow((current) => {
@@ -26,6 +26,10 @@ export default function HomeNavigation() {
         })
     }
 
+    function focusWindow(section: NavSection) {
+        setFocusedWindow(section);
+    }
+
     return (
         <>
             <nav className="mt-10 flex w-full max-w-38.5 flex-col gap-6">
@@ -33,19 +37,21 @@ export default function HomeNavigation() {
                 <HomeNavBtn onClick={() => openWindow("projects")}> projects</HomeNavBtn>
                 <HomeNavBtn onClick={() => openWindow("contact")}> contact</HomeNavBtn>
             </nav>
-                <section className="fixed pointer-events-none fixed inset-0 z-50 overflow-hidden inset-0 z-50 overflow-hidden">
-                    <AnimatePresence>
-                        {activeWindow.map((title) => (
-                            <DraggableWindow
-                                key={title}
-                                title={title}
-                                onClose={() => closeWindow(title)}
-                            />
-                        ))}
-                    </AnimatePresence>
+            <section className="fixed pointer-events-none fixed inset-0 z-50 overflow-hidden inset-0 z-50 overflow-hidden">
+                <AnimatePresence>
+                    {activeWindow.map((title) => (
+                        <DraggableWindow
+                            key={title}
+                            title={title}
+                            onClose={() => closeWindow(title)}
+                            onFocus={()=> focusWindow(title)}
+                            isFocused={focusedWindow=== title}
+                        />
+                    ))}
+                </AnimatePresence>
 
-                </section>
-         
+            </section>
+
         </>
     )
 

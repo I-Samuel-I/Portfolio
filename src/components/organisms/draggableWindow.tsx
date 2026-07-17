@@ -8,10 +8,13 @@ import { useDraggableWindow } from "../../hooks/useDraggableWindow";
 import WindowAbout from "../templates/windowAbout";
 import WindowContact from "../templates/windowContact";
 import WindowProject from "../templates/windowProject";
+import { sounds } from "../../data/sounds";
 
 type DraggableWindowProps = {
     title: string;
     onClose: () => void;
+    onFocus: () => void;
+    isFocused: boolean;
 }
 
 const windowSize: Record<WindowType, string> = {
@@ -20,12 +23,19 @@ const windowSize: Record<WindowType, string> = {
     contact: "h-180 w-175",
 };
 
-export default function DraggableWindow({ title, onClose }: DraggableWindowProps) {
+export default function DraggableWindow({ title, onClose, onFocus, isFocused }: DraggableWindowProps) {
 
     const { windowProps, dragHandleProps, isDragging } = useDraggableWindow(true)
 
+    function playCloseSound() {
+        const audio = new Audio(sounds.closeWindow)
+        audio.volume = 0.35
+        audio.play();
+    }
+
     return (
         <motion.div
+            onPointerDown={onFocus}
             {...windowProps}
             initial={{ opacity: 0, scale: 0.90 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -34,8 +44,9 @@ export default function DraggableWindow({ title, onClose }: DraggableWindowProps
                 opacity: 0, scale: 0.90, x: -30,
             }}
             className={`pointer-events-auto absolute flex ${windowSize[title]}
-      flex-col overflow-hidden rounded-window border border-border-muted
-      bg-window text-text-main shadow-window`}
+            ${isFocused ? "z-10" : "z-0"}
+            flex-col overflow-hidden rounded-window border border-border-muted
+            bg-window text-text-main shadow-window`}
         >
             <div
                 {...dragHandleProps}
@@ -44,9 +55,11 @@ export default function DraggableWindow({ title, onClose }: DraggableWindowProps
                     }`}>
                 <h1>{title}</h1>
                 <button
-
                     onPointerDown={(event) => event.stopPropagation()}
-                    onClick={onClose}
+                    onClick={() => {
+                        onClose?.();
+                        playCloseSound();
+                    }}
                     className="transition-colors cursor-pointer hover:text-highlight"
                 >
                     [ x ]

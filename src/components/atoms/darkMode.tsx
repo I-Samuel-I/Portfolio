@@ -4,15 +4,23 @@
 import MoonIcon from "@/src/assets/icons/moon.svg"
 import SunIcon from "@/src/assets/icons/sun.svg"
 import { useState } from "react"
+import { sounds } from "../../data/sounds"
 
 export default function DarkMode() {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [isHolding, setIsHolding] = useState(false)
 
-
     const toogleDarkMode = () => {
         setIsDarkMode((current) => !current)
     }
+
+    const playModeSound = () => {
+        const sound = isDarkMode ? sounds.darkMode : sounds.lightMode;
+        const audio = new Audio(sound)
+        audio.volume = 0.45
+        audio.play();
+    }
+
     const Icon = isDarkMode ? MoonIcon : SunIcon
     return (
         <>
@@ -21,7 +29,10 @@ export default function DarkMode() {
                 onMouseDown={() => setIsHolding(true)}
                 onMouseUp={() => setIsHolding(false)}
                 onPointerLeave={() => setIsHolding(false)}
-                onClick={toogleDarkMode}
+                onClick={() => {
+                    playModeSound();
+                    toogleDarkMode()
+                }}
                 aria-label={isDarkMode ? "Ativar modo claro" : "Ativar modo escuro"}
                 aria-pressed={isDarkMode}
                 className={` transition-all duration-200 cursor-pointer
