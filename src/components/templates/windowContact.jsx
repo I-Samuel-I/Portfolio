@@ -1,6 +1,38 @@
+import { contactPOST } from "@/src/services/contact";
+import { useState } from "react";
+
 const subjects = ["projeto", "freelance", "colaboracao", "duvida"];
 
 export default function WindowContact() {
+  const [isSubmit, setIsSubmit] = useState(false);
+  const [error, setError] = useState("");
+  const [modalSucess, setModalSucess] = useState("")
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    setIsSubmit(true);
+
+    const form = event.currentTarget
+    const formData = new FormData(form);
+
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+      website: formData.get("website") || "",
+    };
+
+    try {
+      await contactPOST(data);
+      form.reset();
+    } catch {
+    } finally {
+      setIsSubmit(false);
+    }
+  }
+
   return (
     <section className="h-full w-full overflow-y-hidden rounded-md bg-window p-6 text-text-main shadow-window-inset">
       <div className="flex gap-5 justify-between">
@@ -19,10 +51,12 @@ export default function WindowContact() {
           </div>
 
           <div className="relative min-h-64 rounded-md border border-dashed border-border-muted bg-window-panel p-5"></div>
-         
         </aside>
 
-        <form className="flex flex-col w-full mt-10 gap-4 ">
+        <form
+          className="flex flex-col w-full mt-10 gap-4"
+          onSubmit={handleSubmit}
+        >
           <div>
             <label
               htmlFor="contact-name"
@@ -44,7 +78,7 @@ export default function WindowContact() {
               htmlFor="contact-email"
               className="mb-2 block text-sm font-bold text-text-main"
             >
-              email <span className="text-highlight">*</span>
+              email
             </label>
             <input
               id="contact-email"
@@ -94,12 +128,20 @@ export default function WindowContact() {
               className="w-full resize-none rounded-md border border-border-muted bg-window-input px-4 py-3 text-sm font-semibold text-text-main outline-none transition placeholder:text-text-subtle focus:border-highlight focus:ring-2 focus:ring-highlight/25"
             />
           </div>
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            className="absolute left-[-9999px]"
+          />
 
           <button
-            type="button"
-            className="mx-auto mt-1 h-13 min-w-72 rounded-md border border-border-muted bg-button-bg px-8 text-base font-bold text-text-main shadow-panel transition hover:bg-button-bg-hover"
+            disabled={setIsSubmit}
+            type="submit"
+            className="mx-auto cursor-pointer mt-1 h-13 min-w-72 rounded-md border border-border-muted bg-button-bg px-8 text-base font-bold text-text-main shadow-panel transition hover:bg-button-bg-hover"
           >
-            enviar mensagem *
+            {isSubmit ? "sending" : "send message"}
           </button>
         </form>
       </div>

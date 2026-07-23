@@ -1,4 +1,4 @@
 @theme inline {
-  --font-sans: var(--font-geist-sans, Arial, Helvetica, sans-serif);
-  --font-mono: var(--font-geist-mono, monospace);
+  --font-sans: var(--font-satoshi);
+  --font-mono: var(--font-satoshi);
 }

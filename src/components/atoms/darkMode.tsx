@@ -17,7 +17,7 @@ export default function DarkMode() {
     const playModeSound = () => {
         const sound = isDarkMode ? sounds.darkMode : sounds.lightMode;
         const audio = new Audio(sound)
-        audio.volume = 0.45
+        audio.volume = 0.10
         audio.play();
     }
 
