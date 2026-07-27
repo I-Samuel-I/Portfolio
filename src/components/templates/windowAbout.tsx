@@ -1,5 +1,7 @@
 import Image from "next/image";
 import ProfilePic from "../../assets/images/me.png";
+import MobileIcon from "@/src/assets/icons/mobile-programming-0-1.svg"
+import UxIcon from "@/src/assets/icons/web-design-0-2.svg"
 import HtmlTag from "@/src/assets/icons/source-code.svg"
 
 export default function WindowAbout() {
@@ -48,7 +50,7 @@ export default function WindowAbout() {
                 </div>
 
                 <div className="inline-flex h-12 w-full items-center justify-center gap-3 rounded-md border-2 border-border-muted bg-window-panel px-4 text-sm font-bold text-text-main shadow-chip">
-                    <span className="text-lg leading-none text-highlight">[]</span>
+                     <MobileIcon className="h-7 w-7 text-highlight" />
                     <span>mobile dev</span>
                 </div>
 

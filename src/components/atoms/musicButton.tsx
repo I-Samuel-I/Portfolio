@@ -20,7 +20,7 @@ export default function MusicButton() {
 
         if (!musicRef.current) {
             musicRef.current = new Audio(sounds.musicTheme01)
-            musicRef.current.volume = 0.50
+            musicRef.current.volume = 0.10
             musicRef.current.loop = true
         }
 

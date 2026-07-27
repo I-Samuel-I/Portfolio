@@ -1,3 +1,4 @@
+import { rateLimit } from "@/src/hooks/rateLimit";
 import { contactSchema } from "@/src/schemas/contact";
 import { Resend } from "resend";
 import { z } from "zod";
@@ -5,9 +6,41 @@ import { z } from "zod";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
-  const body = await request.json();
-  const result = contactSchema.safeParse(body);
+  let body: unknown;
+  let rateLimitResult;
 
+  const ip =
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    request.headers.get("x-real-ip") ||
+    "anonymous";
+
+  try {
+    rateLimitResult = await rateLimit.limit(ip);
+  } catch {
+    return Response.json(
+      {
+        success: false,
+        code: "RATE_LIMIT_UNAVAILABLE",
+        error: "Serviço temporariamente indisponível.",
+      },
+      { status: 503 },
+    );
+  }
+
+  try {
+    body = await request.json();
+  } catch {
+    return Response.json(
+      {
+        success: false,
+        code: "INVALID_JSON",
+        error: "Corpo da requisição inválido.",
+      },
+      { status: 400 },
+    );
+  }
+
+  const result = contactSchema.safeParse(body);
   function escapeHtml(value: string) {
     return value
       .replaceAll("&", "&amp;")
@@ -17,18 +50,42 @@ export async function POST(request: Request) {
       .replaceAll("'", "&#039;");
   }
 
-
   if (!result.success) {
     return Response.json(
-      { error: "Dados inválidos", fields: result.error.flatten().fieldErrors },
+      {
+        success: false,
+        code: "VALIDATION_ERROR",
+        error: "Dados inválidos.",
+        fields: z.flattenError(result.error).fieldErrors,
+      },
       { status: 400 },
     );
   }
-
   if (!process.env.RESEND_API_KEY) {
     return Response.json(
-      { error: "Serviço de email não configurado." },
+      {
+        success: false,
+        code: "EMAIL_SERVICE_NOT_CONFIGURED",
+        error: "Serviço de email não configurado.",
+      },
       { status: 500 },
+    );
+  }
+  if (!rateLimitResult.success) {
+    return Response.json(
+      {
+        success: false,
+        code: "RATE_LIMITED",
+        error: "Muitas tentativas. Tente novamente mais tarde.",
+      },
+      {
+        status: 429,
+        headers: {
+          "X-RateLimit-Limit": String(rateLimitResult.limit),
+          "X-RateLimit-Remaining": String(rateLimitResult.remaining),
+          "X-RateLimit-Reset": String(rateLimitResult.reset),
+        },
+      },
     );
   }
 
@@ -86,7 +143,7 @@ export async function POST(request: Request) {
 
     return Response.json(
       { error: "Não foi possível enviar a mensagem agora." },
-      { status: 500 },
+      { status: 502 },
     );
   }
 }

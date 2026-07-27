@@ -6,14 +6,16 @@ const subjects = ["projeto", "freelance", "colaboracao", "duvida"];
 export default function WindowContact() {
   const [isSubmit, setIsSubmit] = useState(false);
   const [error, setError] = useState("");
-  const [modalSucess, setModalSucess] = useState("")
+  const [modalSucess, setModalSucess] = useState("");
 
   async function handleSubmit(event) {
     event.preventDefault();
 
     setIsSubmit(true);
+    setError("");
+    setModalSucess("")
 
-    const form = event.currentTarget
+    const form = event.currentTarget;
     const formData = new FormData(form);
 
     const data = {
@@ -27,7 +29,8 @@ export default function WindowContact() {
     try {
       await contactPOST(data);
       form.reset();
-    } catch {
+    } catch (error) {
+      setError(error instanceof Error ? error.message : "Erro inesperado.");
     } finally {
       setIsSubmit(false);
     }
@@ -43,14 +46,14 @@ export default function WindowContact() {
             </h1>
             <div className="mt-3 h-0.75 w-64 max-w-full bg-highlight" />
 
-            <div className="mt-7 max-w-sm space-y-3 text-base font-semibold leading-relaxed text-text-muted">
+            <div className="mt-4 max-w-sm space-y-1 text-base font-semibold leading-relaxed text-text-muted">
               <p>tem algum projeto em mente?</p>
               <p>ou so quer trocar uma ideia?</p>
               <p>me manda uma mensagem que eu respondo assim que possivel.</p>
             </div>
           </div>
 
-          <div className="relative min-h-64 rounded-md border border-dashed border-border-muted bg-window-panel p-5"></div>
+          <div className="relative min-h-60 rounded-md border border-dashed border-border-muted bg-window-panel p-5"></div>
         </aside>
 
         <form
@@ -118,16 +121,22 @@ export default function WindowContact() {
               htmlFor="contact-message"
               className="mb-2 block text-sm font-bold text-text-main"
             >
-              mensagem <span className="text-highlight">*</span>
+              mensagem
             </label>
             <textarea
               id="contact-message"
               name="message"
               placeholder="escreve aqui..."
               rows={7}
+              maxLength={300}
               className="w-full resize-none rounded-md border border-border-muted bg-window-input px-4 py-3 text-sm font-semibold text-text-main outline-none transition placeholder:text-text-subtle focus:border-highlight focus:ring-2 focus:ring-highlight/25"
             />
           </div>
+          {error && (
+            <p role="alert" className="text-sm font-semibold text-red-500">
+              {error}
+            </p>
+          )}
           <input
             type="text"
             name="website"
@@ -137,7 +146,7 @@ export default function WindowContact() {
           />
 
           <button
-            disabled={setIsSubmit}
+            disabled={isSubmit}
             type="submit"
             className="mx-auto cursor-pointer mt-1 h-13 min-w-72 rounded-md border border-border-muted bg-button-bg px-8 text-base font-bold text-text-main shadow-panel transition hover:bg-button-bg-hover"
           >
