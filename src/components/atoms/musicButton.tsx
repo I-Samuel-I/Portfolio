@@ -3,6 +3,7 @@
 import HeadphoneMuteIcon from "@/src/assets/icons/headphone-mute.svg"
 import MusicIcon from "@/src/assets/icons/music-note-square.svg"
 import { useRef, useState } from "react"
+import { motion } from "motion/react"
 import { sounds } from "../../data/sounds";
 
 export default function MusicButton() {
@@ -40,7 +41,31 @@ export default function MusicButton() {
 
     return (
         <>
-            <button
+            <motion.button
+
+                animate={
+                    !isMuted
+                        ? {
+                            scale: [1, 1.20, 1],
+                            opacity: [1, 0.65, 1],
+                        }
+                        : {
+                            scale: 1,
+                            opacity: 1,
+                        }
+                }
+                transition={
+                    !isMuted
+                        ? {
+                            duration: 1.6,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                        }
+                        : {
+                            duration: 0.2,
+                        }
+                }
+
                 type="button"
                 onMouseDown={() => setIsHolding(true)}
                 onMouseUp={() => setIsHolding(false)}
@@ -51,7 +76,7 @@ export default function MusicButton() {
                 className={` transition-all duration-200 cursor-pointer
                 ${isHolding ? "scale-80" : "scale-100"}`}>
                 <Icon className="h-8.5 w-8.5 text-text-main" aria-hidden="true" />
-            </button>
+            </motion.button>
         </>
     )
 }

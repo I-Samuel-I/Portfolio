@@ -1,3 +1,5 @@
+import Image from "next/image";
+import ArrowDown from "@/src/assets/icons/arrow-down-0-1.svg"
 import { projectsFilters, projects, techStacks, extraLinks } from "../../data/project";
 
 export default function WindowProject() {
@@ -22,26 +24,40 @@ export default function WindowProject() {
             </header>
 
             <section className="grid gap-6  border-border-muted pb-7 md:grid-cols-2 xl:grid-cols-3">
-                {projects.map((project, index) => (
-                    <article
-                        key={project.id}
-                        className="relative rounded-md border border-border-muted bg-window p-3 shadow-panel"
-                    >
-                        <div className="mt-3 flex items-start justify-between gap-3">
-                            <div>
-                                <h3 className="text-lg font-bold leading-tight text-text-heading">
-                                    {project.title}
-                                </h3>
-                                <p className="mt-1 text-sm font-semibold leading-relaxed text-text-muted">
-                                    {project.description}
-                                </p>
+                {projects.map((project, index) => {
+                    const ProjectImages = project.image
+                    return (
+                        <article
+                            key={project.id}
+                            className="relative rounded-md border border-border-muted bg-window p-3 shadow-panel"
+                        >
+                            <div className="mt-1 mb-3 flex items-start justify-between gap-3">
+                                <div>
+                                    <h3 className="text-lg font-bold leading-tight text-text-heading">
+                                        {project.title}
+                                    </h3>
+                                </div>
+                                <span className="grid size-7 shrink-0 place-items-center rounded-sm border-2 border-border-muted text-xs font-black text-highlight">
+                                    {index + 1}
+                                </span>
                             </div>
-                            <span className="grid size-7 shrink-0 place-items-center rounded-sm border border-border-muted text-xs font-bold text-highlight">
-                                {index + 1}
-                            </span>
-                        </div>
-                    </article>
-                ))}
+                            <div className="aspect-video overflow-hidden rounded-md border border-border-muted bg-window-panel">
+                                <Image
+                                    src={ProjectImages}
+                                    alt="descricao da imagem"
+                                    className="h-full w-full object-cover transition duration-300 hover:scale-[1.03]"
+                                />
+                            </div>
+                            <button className="mt-3 flex gap-1 items-center">
+                                <h3 className="text-sm font-bold leading-tight text-highlight">
+                                    Mais Detalhes
+                                </h3>
+                                <ArrowDown className="h-5 w-5 text-highlight" />
+                            </button>
+
+                        </article>
+                    )
+                })}
             </section>
 
             <section className="py-7">
@@ -67,30 +83,38 @@ export default function WindowProject() {
             </section>
 
             <footer className="flex flex-col">
-                <div className="rounded-sm flex border border-dashed border-border-muted bg-window p-4">
-                    <div>
-                        <h3 className="mb-3 text-base font-bold text-highlight">conteudo extra</h3>
-                        <ul className="list-disc pace-y-2 pl-5 text-[12px] font-semibold leading-relaxed text-text-muted">
-                            <li>repositorios, codigo-fonte e projetos experimentais.</li>
-                            <li>anotacoes, estudos e diarios de desenvolvimento.</li>
-                            <li>email para contato.</li>
-                        </ul>
-                    </div>
+                <div className="rounded-sm border border-dashed border-border-muted bg-window p-4">
+                    <h3 className="mb-2 text-base font-bold text-highlight">conteudo extra</h3>
 
-
-                    <div className="grid gap-3 sm:grid-cols-3">
-                        {extraLinks.map((link) => (
-                            <a
-                                key={link.label}
-                                href="#"
-                                className="rounded-md border border-border-muted bg-window p-4 text-sm font-bold text-text-main shadow-chip transition hover:border-highlight hover:text-highlight"
-                            >
-                                <span className="block text-base">{link.label}</span>
-                                <span className="mt-1 block truncate text-xs font-semibold text-text-subtle">
-                                    {link.text}
-                                </span>
-                            </a>
-                        ))}
+                    <div className="flex items-start gap-3">
+                        <div>
+                            <ul className="list-disc pl-5 text-[12px] font-semibold leading-relaxed text-text-muted">
+                                <li>repositorios, codigo-fonte e projetos experimentais.</li>
+                                <li>anotacoes, estudos e diarios de desenvolvimento.</li>
+                                <li>email para contato.</li>
+                            </ul>
+                        </div>
+                        <div className="self-stretch border-l border-border-muted" />
+                        <div className="grid flex-1 gap-3 max-h-25 sm:grid-cols-3">
+                            {extraLinks.map((link) => {
+                                const ExtraIcon = link.icon
+                                return (
+                                    <a
+                                        key={link.label}
+                                        href="#"
+                                        className="rounded-md border border-border-muted bg-window p-4 text-sm font-bold text-text-main shadow-chip transition hover:border-highlight hover:text-highlight"
+                                    >
+                                        <div className="flex gap-1">
+                                            <ExtraIcon className="h-5 w-5 text-highlight" aria-hidden="true" />
+                                            <span className="block text-sm">{link.label}</span>
+                                        </div>
+                                        <span className="mt-1 block truncate text-xs font-semibold text-text-subtle">
+                                            {link.text}
+                                        </span>
+                                    </a>
+                                )
+                            })}
+                        </div>
                     </div>
                 </div>
 

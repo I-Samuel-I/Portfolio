@@ -15,20 +15,25 @@ import TypeScriptIcon from "@/src/assets/icons/typescript-0-2.svg";
 import WebDesignIcon from "@/src/assets/icons/web-design-0-2.svg";
 import Screen01 from "../assets/images/Project-Screen01.png";
 import Screen02 from "../assets/images/Project-Screen02.png";
+import Mail from "@/src/assets/icons/mail.svg";
+import Notion from "@/src/assets/icons/notion-0-2.svg";
 
 export const projectsFilters = ["all", "web", "mobile"];
 
 export const extraLinks = [
   {
     label: "github",
+    icon: GithubIcon,
     text: "github.com/samgomes-dev",
   },
   {
     label: "notion",
-    text: "meu espaco de estudos",
+    icon: Notion,
+    text: "espaço de estudos",
   },
   {
     label: "email",
+    icon: Mail,
     text: "samgomes.dev@gmail.com",
   },
 ];
@@ -123,21 +128,17 @@ export const projects = [
   {
     id: 1,
     title: "GestIO",
+    category: "web",
     description: "Test",
     image: Screen02,
     link: "https://github.com/Projects-Poran/Gestio",
   },
   {
     id: 2,
-    title: "Midnight Rosee",
+    category: "web",
+    title: "Midnight Rose",
     description: "Test",
     image: Screen01,
     link: "https://midnight-rose.vercel.app/",
-  },
-  {
-    id: 3,
-    title: "Midnight Roseee",
-    description: "Test",
-    image: "teste",
   },
 ];
