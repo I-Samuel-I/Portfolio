@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 96" color="currentColor">
+  <title>Cloud fill 03</title>
+  <path d="M14 73c0-12 10-22 24-20 3-15 16-26 31-23 8-16 28-25 48-15 13 7 20 19 18 34 12-3 25 4 25 18 0 12-11 20-27 20H30c-10 0-16-5-16-14Z" fill="currentColor" fill-opacity=".9" stroke="currentColor" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M43 57c6-5 14-6 22-3M88 27c9-5 22-3 30 4M117 68c8-2 17 1 22 7M31 78c7 2 16 2 24 1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".38"/>
+</svg>

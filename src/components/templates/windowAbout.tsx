@@ -6,7 +6,7 @@ import HtmlTag from "@/src/assets/icons/source-code.svg"
 
 export default function WindowAbout() {
     return (
-        <section className="scroll-css h-full w-full overflow-y-auto rounded-md bg-window p-6 text-text-main shadow-window-inset">
+        <section className="scroll-css h-full w-full overflow-y-auto rounded-md bg-window p-6 text-text-main">
             <article className="grid gap-8 pb-7 lg:grid-cols-[220px_1fr]">
                 <div className="mx-auto flex w-full max-w-[220px] items-center justify-center">
                     <Image
@@ -20,7 +20,7 @@ export default function WindowAbout() {
                 <div className="flex w-full flex-col">
 
                     <h1 className="text-4xl font-bold leading-none tracking-normal text-text-heading">
-                        hi! i´m samuel,
+                        hi! i&apos;m samuel,
                     </h1>
                     <div className="mt-2 h-0.75 w-64 max-w-full bg-highlight" />
                     <h2 className="mt-4 text-lg font-bold text-highlight">
@@ -50,12 +50,12 @@ export default function WindowAbout() {
                 </div>
 
                 <div className="inline-flex h-12 w-full items-center justify-center gap-3 rounded-md border-2 border-border-muted bg-window-panel px-4 text-sm font-bold text-text-main shadow-chip">
-                     <MobileIcon className="h-7 w-7 text-highlight" />
+                    <MobileIcon className="h-7 w-7 text-highlight" />
                     <span>mobile dev</span>
                 </div>
 
                 <div className="inline-flex h-12  w-full items-center justify-center gap-3 rounded-md border-2 border-border-muted bg-window-panel px-4 text-sm font-bold text-text-main shadow-chip">
-                    <span className="text-sm font-black leading-none text-highlight">UX</span>
+                    <UxIcon className="h-7 w-7 text-highlight" />
                     <span>ux/ui design</span>
                 </div>
             </article>
@@ -63,13 +63,13 @@ export default function WindowAbout() {
             <article className="grid gap-6 py-6 md:grid-cols-3">
                 <div className="min-h-56 rounded-md border border-border-muted bg-window-panel p-5 shadow-panel">
                     <h3 className="mb-5 text-lg font-bold text-highlight">education</h3>
-                    <div className="space-y-5 text-sm leading-relaxed text-text-muted">
+                    <div className="space-y-5 text-sm leading-relaxed  font-medium text-text-muted">
                         <div>
-                            <p className="font-bold text-text-main">Computer Technician</p>
+                            <p className="text-text-main">Computer Technician</p>
                             <p className="text-highlight">Federal Institute of Paraiba</p>
                         </div>
                         <div>
-                            <p className="font-bold text-text-main">Systems Analysis and Development</p>
+                            <p className="text-text-main">Systems Analysis and Development</p>
                             <p className="text-highlight">UNIFIP University Center</p>
                         </div>
                     </div>
@@ -77,7 +77,7 @@ export default function WindowAbout() {
 
                 <div className="min-h-56 rounded-md border border-border-muted bg-window-panel p-5 shadow-panel">
                     <h3 className="mb-5 text-lg font-bold text-highlight">languages</h3>
-                    <ul className="list-disc space-y-3 pl-5 text-sm leading-relaxed text-text-muted">
+                    <ul className=" space-y-3 pl-5 text-sm leading-relaxed font-medium text-text-muted">
                         <li>
                             Portuguese
                             <span className="block text-highlight">Fluent</span>
@@ -91,7 +91,7 @@ export default function WindowAbout() {
 
                 <div className="min-h-56 rounded-md border border-border-muted bg-window-panel p-5 shadow-panel">
                     <h3 className="mb-5 text-lg font-bold text-highlight">interests</h3>
-                    <ul className="list-disc space-y-1 pl-5 text-sm leading-relaxed text-text-muted">
+                    <ul className="list-disc space-y-1 pl-5 text-sm font-medium leading-relaxed text-text-muted">
                         <li>Indie games</li>
                         <li>Digital illustration</li>
                         <li>Volleyball</li>

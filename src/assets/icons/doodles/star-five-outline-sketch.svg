@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" color="currentColor" fill="none">
+  <title>Star five outline sketch</title>
+  <path d="M63 13l12 33 36-1-29 21 12 36-31-22-31 22 12-36-29-21 36 1 12-33Z" stroke="currentColor" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M66 19l9 30 32 1-26 18 9 30-27-19-28 18 11-30-25-19 31 1 14-30Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" opacity=".55"/>
+  <path d="M45 80l-6 12M84 47l10-5M70 30l4 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity=".55"/>
+</svg>

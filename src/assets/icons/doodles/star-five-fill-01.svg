@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" color="currentColor">
+  <title>Star five fill 01</title>
+  <path d="M64 13l15 37 39 2-31 23 10 39-33-23-33 23 11-39-32-23 39-2 15-37Z" fill="currentColor" fill-opacity=".9" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M50 33l5 7M83 35l-5 8M38 77l10-3M88 78l10 5M61 98l7 6" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" opacity=".35"/>
+</svg>

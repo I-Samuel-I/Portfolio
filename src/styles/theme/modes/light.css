@@ -1,0 +1,43 @@
+[data-theme="light"] {
+  color-scheme: light;
+
+  --background: #f7f4fb;
+  --background-secondary: #e8edf4;
+  --background-shell: #fffaf6;
+  --background-shell-header: #efe3d7;
+  --background-window: #fffdf8;
+  --background-window-header: #eadbcc;
+  --background-window-panel: #f3edf7;
+  --background-window-panel-alt: #ece5f1;
+  --background-window-input: #ffffff;
+
+  --text-color: #26202e;
+  --text-heading: #17131f;
+  --text-muted: #5e5669;
+  --text-subtle: rgb(38 32 46 / 0.64);
+
+  --highlight-text: #745f91;
+  --highlight-text-hover: #5e4a78;
+
+  --border-color: rgb(38 32 46 / 0.72);
+  --border-muted: rgb(38 32 46 / 0.26);
+  --border-soft: rgb(38 32 46 / 0.14);
+  --btn-border-color-hover: #745f91;
+
+  --button-bg: #e4d7ef;
+  --button-bg-hover: #d5c0e7;
+
+  --scrollbar-thumb: #b79cca;
+  --scrollbar-thumb-hover: #745f91;
+
+  --shadow-window-color: rgb(61 43 76 / 0.18);
+  --shadow-control-color: rgb(61 43 76 / 0.16);
+
+  --backgroundSecondary: var(--background-secondary);
+  --backgroundHeaderWindow: var(--background-window-header);
+  --backgroundWindow: var(--background-window);
+  --textColor: var(--text-color);
+  --highlightText: var(--highlight-text);
+  --borderColor: var(--border-color);
+  --btnBorderColorHover: var(--btn-border-color-hover);
+}

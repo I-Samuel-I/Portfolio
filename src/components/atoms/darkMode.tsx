@@ -3,25 +3,34 @@
 
 import MoonIcon from "@/src/assets/icons/moon.svg"
 import SunIcon from "@/src/assets/icons/sun.svg"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { sounds } from "../../data/sounds"
 
 export default function DarkMode() {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(true);
     const [isHolding, setIsHolding] = useState(false)
 
+    useEffect(() => {
+        document.documentElement.dataset.theme = isDarkMode ? "dark" : "light"
+    }, [isDarkMode])
+
     const toogleDarkMode = () => {
-        setIsDarkMode((current) => !current)
+        const nextIsDarkMode = !isDarkMode
+        const nextTheme = nextIsDarkMode ? "dark" : "light"
+
+        playModeSound(nextTheme)
+
+        setIsDarkMode(nextIsDarkMode)
     }
 
-    const playModeSound = () => {
-        const sound = isDarkMode ? sounds.darkMode : sounds.lightMode;
+    const playModeSound = (nextTheme: "dark" | "light") => {
+        const sound = nextTheme === "dark" ? sounds.darkMode : sounds.lightMode;
         const audio = new Audio(sound)
         audio.volume = 0.10
         audio.play();
     }
 
-    const Icon = isDarkMode ? MoonIcon : SunIcon
+    const Icon = isDarkMode ? SunIcon : MoonIcon
     return (
         <>
             <button
@@ -30,7 +39,6 @@ export default function DarkMode() {
                 onMouseUp={() => setIsHolding(false)}
                 onPointerLeave={() => setIsHolding(false)}
                 onClick={() => {
-                    playModeSound();
                     toogleDarkMode()
                 }}
                 aria-label={isDarkMode ? "Ativar modo claro" : "Ativar modo escuro"}

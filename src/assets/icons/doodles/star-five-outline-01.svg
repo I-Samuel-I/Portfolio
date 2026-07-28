@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" color="currentColor" fill="none">
+  <title>Star five outline 01</title>
+  <path d="M64 13l14 36 38 2-30 23 10 38-32-22-32 22 10-38-30-23 38-2 14-36Z" stroke="currentColor" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M64 22l11 30 32 2-26 19 9 31-26-18-27 18 9-31-25-19 31-2 12-30Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" opacity=".4"/>
+</svg>

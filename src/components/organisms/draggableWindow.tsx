@@ -8,6 +8,7 @@ import { useDraggableWindow } from "../../hooks/useDraggableWindow";
 import WindowAbout from "../templates/windowAbout";
 import WindowContact from "../templates/windowContact";
 import WindowProject from "../templates/windowProject";
+import CloseBtn from "@/src/assets/icons/close.svg"
 import { sounds } from "../../data/sounds";
 
 type DraggableWindowProps = {
@@ -50,20 +51,21 @@ export default function DraggableWindow({ title, onClose, onFocus, isFocused }: 
         >
             <div
                 {...dragHandleProps}
-                className={`flex shrink-0 select-none touch-none items-center justify-between border-b border-border-muted bg-window-header p-5 
-                pb-2 text-2xl ${isDragging ? "cursor-grabbing" : "cursor-grab"
+                className={`flex select-none touch-none items-center justify-between border-b border-border-muted bg-window-header px-5 py-3
+                pb-2 text-[20px] ${isDragging ? "cursor-grabbing" : "cursor-grab"
                     }`}>
                 <h1>{title}</h1>
-                <button
+                <motion.button
                     onPointerDown={(event) => event.stopPropagation()}
                     onClick={() => {
                         onClose?.();
                         playCloseSound();
                     }}
-                    className="transition-colors cursor-pointer hover:text-highlight"
+                    aria-label="fechar janela"
+                    className="grid h-7 w-8 cursor-pointer place-items-center text-text-main transition-all hover:scale-110 hover:text-highlight"
                 >
-                    [ x ]
-                </button>
+                    <CloseBtn className="w-7" />
+                </motion.button>
             </div>
             <div className="relative min-h-0 flex-1 p-3">
                 {title === "about" && <WindowAbout />}

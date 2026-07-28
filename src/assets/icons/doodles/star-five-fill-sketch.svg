@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" color="currentColor">
+  <title>Star five fill sketch</title>
+  <path d="M64 12l14 37 38 1-31 23 11 39-32-22-33 22 12-39-31-23 38-1 14-37Z" fill="currentColor" fill-opacity=".9" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M42 78l-7 11M54 43l-9 4M77 35l4 9M88 74l12 4M55 95l7 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" opacity=".42"/>
+  <path d="M29 53c8-1 15-1 21-2M84 55c8-1 15-1 23-1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity=".3"/>
+</svg>

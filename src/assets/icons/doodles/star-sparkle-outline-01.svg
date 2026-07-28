@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" color="currentColor" fill="none">
+  <title>Star sparkle outline 01</title>
+  <path d="M64 12C59 39 47 55 18 64c29 8 42 25 46 52 5-27 18-44 46-52-28-9-41-25-46-52Z" stroke="currentColor" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M64 17C60 42 49 57 24 64c25 7 36 22 40 47 5-25 16-40 40-47-24-8-35-23-40-47Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" opacity=".45"/>
+</svg>
