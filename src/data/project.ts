@@ -17,6 +17,8 @@ import Screen01 from "../assets/images/Project-Screen01.png";
 import Screen02 from "../assets/images/Project-Screen02.png";
 import Mail from "@/src/assets/icons/mail.svg";
 import Notion from "@/src/assets/icons/notion-0-2.svg";
+import DataBaseIcon from "@/src/assets/icons/database-0-2.svg";
+import GenericIcon from "@/src/assets/icons/document-code.svg";
 
 export const projectsFilters = ["all", "web", "mobile"];
 
@@ -43,6 +45,75 @@ export type TechStackIcon = ComponentType<SVGProps<SVGSVGElement>>;
 type TechStack = {
   title: string;
   icons: TechStackIcon;
+};
+
+export const techIconAliases: Record<string, string> = {
+    // web base
+    html: "html",
+    html5: "html",
+
+    css: "css",
+    css3: "css",
+
+    javascript: "javascript",
+    js: "javascript",
+
+    typescript: "typescript",
+    ts: "typescript",
+
+    python: "python",
+    django: "django",
+
+    java: "java",
+
+    // frameworks/libs
+    react: "react",
+    reactjs: "react",
+
+    nextjs: "next.js",
+    next: "next.js",
+
+    angular: "angular",
+    vue: "vue",
+    vuejs: "vue",
+
+    reactnative: "react native",
+    expo: "expo go",
+    expogo: "expo go",
+
+    nodejs: "node.js",
+    node: "node.js",
+
+    nestjs: "javascript",
+    nest: "javascript",
+
+    tailwind: "tailwind",
+    tailwindcss: "tailwind",
+
+    styledcomponents: "styled components",
+    styled: "styled components",
+
+    // libs citadas nos projetos
+    emailjs: "library",
+    sweetalert: "library",
+    sweetalert2: "library",
+    recharts: "library",
+    jwt: "library",
+
+    // banco de dados
+    postgresql: "database",
+    postgres: "database",
+    mysql: "database",
+    mongodb: "database",
+    mongo: "database",
+    sqlite: "database",
+    sqlserver: "database",
+    prisma: "database",
+
+    // ferramentas
+    git: "git",
+    github: "github",
+    figma: "figma",
 };
 
 export const techStacks: TechStack[] = [
@@ -111,6 +182,14 @@ export const techStacks: TechStack[] = [
     icons: CssFileIcon,
   },
   {
+    title: "database",
+    icons: DataBaseIcon,
+  },
+  {
+    title: "library",
+    icons: GenericIcon,
+  },
+  {
     title: "git",
     icons: GitIcon,
   },
@@ -129,16 +208,24 @@ export const projects = [
     id: 1,
     title: "GestIO",
     category: "web",
-    description: "Test",
+    description:
+      "Business management system with modules for sales, finance, dashboard, inventory, customers, products, and PDF reports.",
     image: Screen02,
-    link: "https://github.com/Projects-Poran/Gestio",
+    status: "finished",
+    date: "2026",
+    techs: ["nestJs", "postgreSQL", "JWT", "Next.JS", "Recharts..."],
+    github: "https://github.com/Projects-Poran/Gestio",
   },
   {
     id: 2,
     category: "web",
     title: "Midnight Rose",
-    description: "Test",
+    description: "A website created as a tribute to the Japanese singer Ado, showcasing her main works and a bit of her journey up to the present day.",
     image: Screen01,
+    status: "finished",
+    date: "2026",
+    techs: ["React", "EmailJs", "Styled-Components","SweetAlert..."],
+    github: "https://github.com/I-Samuel-I/Midnight-Rose",
     link: "https://midnight-rose.vercel.app/",
   },
 ];
