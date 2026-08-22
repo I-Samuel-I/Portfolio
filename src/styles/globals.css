@@ -14,7 +14,7 @@ body {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  opacity: 0.50;
+  opacity: 0.5;
   mix-blend-mode: difference;
   image-rendering: pixelated;
 }

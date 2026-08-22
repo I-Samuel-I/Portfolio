@@ -24,13 +24,13 @@ export default function DarkMode() {
     }
 
     const playModeSound = (nextTheme: "dark" | "light") => {
-        const sound = nextTheme === "dark" ? sounds.darkMode : sounds.lightMode;
+        const sound = nextTheme === "dark" ? sounds.lightMode : sounds.darkMode;
         const audio = new Audio(sound)
         audio.volume = 0.10
         audio.play();
     }
 
-    const Icon = isDarkMode ? SunIcon : MoonIcon
+    const Icon = isDarkMode ? MoonIcon : SunIcon
     return (
         <>
             <button

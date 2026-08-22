@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ProfilePic from "../../assets/images/me.png";
+import ProfilePic from "../../assets/images/me02.png";
 import MobileIcon from "@/src/assets/icons/mobile-programming-0-1.svg"
 import UxIcon from "@/src/assets/icons/web-design-0-2.svg"
 import HtmlTag from "@/src/assets/icons/source-code.svg"
@@ -7,14 +7,14 @@ import HtmlTag from "@/src/assets/icons/source-code.svg"
 export default function WindowAbout() {
     return (
         <section className="scroll-css h-full w-full overflow-y-auto rounded-md bg-window p-6 text-text-main">
-            <article className="grid gap-8 pb-7 lg:grid-cols-[220px_1fr]">
-                <div className="mx-auto flex w-full max-w-[220px] items-center justify-center">
+            <article className="flex flex-col gap-6 border-b border-border-muted pb-6 md:flex-row ">
+                <div className="mx-auto flex w-full  items-center justify-center">
                     <Image
                         src={ProfilePic}
                         alt="Foto de Samuel Gomes"
-                        width={200}
+                        width={300}
                         height={300}
-                        className="h-47.5 w-47.5 scale-130 rounded-full object-cover"
+                        className="h-90 w-90 rounded-full  object-cover"
                     />
                 </div>
                 <div className="flex w-full flex-col">
