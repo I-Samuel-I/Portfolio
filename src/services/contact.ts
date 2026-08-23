@@ -14,24 +14,22 @@ export async function contactPOST(data: ContactPayload) {
   if (!response.ok) {
     switch (response.status) {
       case 400:
-        throw new Error(result.error || "Dados inválidos.");
+        throw new Error(result.error || "Invalid data.");
 
       case 429:
-        throw new Error(
-          "Muitas tentativas. Tente novamente em alguns minutos.",
-        );
+        throw new Error("Too many attempts. Please try again in a few minutes.");
 
       case 500:
-        throw new Error("Erro interno. Tente novamente mais tarde.");
+        throw new Error("Internal server error. Please try again later.");
 
       case 502:
-        throw new Error("Não foi possível enviar o email agora.");
+        throw new Error("It was not possible to send the email right now.");
 
       case 503:
-        throw new Error("Serviço temporariamente indisponível.");
+        throw new Error("Service temporarily unavailable.");
 
       default:
-        throw new Error(result.error || "Erro inesperado.");
+        throw new Error(result.error || "Unexpected error.");
     }
   }
   return result;

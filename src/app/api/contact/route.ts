@@ -3,7 +3,9 @@ import { contactSchema } from "@/src/schemas/contact";
 import { Resend } from "resend";
 import { z } from "zod";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY
+  ? new Resend(process.env.RESEND_API_KEY)
+  : null; 
 
 export async function POST(request: Request) {
   let body: unknown;
@@ -21,7 +23,7 @@ export async function POST(request: Request) {
       {
         success: false,
         code: "RATE_LIMIT_UNAVAILABLE",
-        error: "Serviço temporariamente indisponível.",
+        error: "Rate limit service temporarily unavailable.",
       },
       { status: 503 },
     );
@@ -34,7 +36,7 @@ export async function POST(request: Request) {
       {
         success: false,
         code: "INVALID_JSON",
-        error: "Corpo da requisição inválido.",
+        error: "Request body is invalid.",
       },
       { status: 400 },
     );
@@ -55,18 +57,18 @@ export async function POST(request: Request) {
       {
         success: false,
         code: "VALIDATION_ERROR",
-        error: "Dados inválidos.",
+        error: result.error.issues[0]?.message || "Invalid data.",
         fields: z.flattenError(result.error).fieldErrors,
       },
       { status: 400 },
     );
   }
-  if (!process.env.RESEND_API_KEY) {
+  if (!resend) {
     return Response.json(
       {
         success: false,
         code: "EMAIL_SERVICE_NOT_CONFIGURED",
-        error: "Serviço de email não configurado.",
+        error: "Email service is not configured.",
       },
       { status: 500 },
     );
@@ -76,7 +78,7 @@ export async function POST(request: Request) {
       {
         success: false,
         code: "RATE_LIMITED",
-        error: "Muitas tentativas. Tente novamente mais tarde.",
+        error: "Too many attempts. Please try again later.",
       },
       {
         status: 429,
@@ -93,7 +95,7 @@ export async function POST(request: Request) {
 
   if (website) {
     return Response.json(
-      { message: "Mensagem enviada com sucesso." },
+      { message: "Message sent successfully." },
       { status: 200 },
     );
   }
@@ -135,14 +137,14 @@ export async function POST(request: Request) {
     });
 
     return Response.json(
-      { message: "Mensagem enviada com sucesso" },
+      { message: "Message sent successfully." },
       { status: 200 },
     );
   } catch (error) {
-    console.log("Erro ao envir mensagem: ", error);
+    console.log("Error sending message: ", error);
 
     return Response.json(
-      { error: "Não foi possível enviar a mensagem agora." },
+      { error: "It was not possible to send the message right now." },
       { status: 502 },
     );
   }

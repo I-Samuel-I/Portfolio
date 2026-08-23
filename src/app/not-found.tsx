@@ -21,14 +21,14 @@ export default function NotFound() {
         <section className="flex flex-1 flex-col items-center justify-center px-6 text-center">
           <span className="text-8xl font-bold text-highlight">404</span>
           <h1 className="mt-6 text-4xl font-bold text-text-heading">
-            Opps! Acessou uma pagina inexistente.
+            Oops! You accessed a page that does not exist.
           </h1>
           <OpenButton>
             <Link
               href="/"
               className="mt-10 grid h-12 min-w-56 place-items-center rounded-md border border-border-muted bg-button-bg px-6 text-sm font-bold text-text-main shadow-panel transition hover:bg-button-bg-hover"
             >
-              voltar para home
+              back to home
             </Link>
           </OpenButton>
 

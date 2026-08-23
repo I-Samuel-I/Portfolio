@@ -78,8 +78,8 @@ export default function WindowProject() {
 
                     {filteredProjects.length === 0 && (
                         <div className="col-span-full flex flex-col items-center justify-center gap-3 rounded-md border border-border-muted bg-window p-6 text-text-main">
-                            <h3 className="text-lg font-bold text-text-heading">Nenhum projeto encontrado</h3>
-                            <p className="text-sm font-semibold text-text-subtle">Tente selecionar outra categoria.</p>
+                            <h3 className="text-lg font-bold text-text-heading">No projects found</h3>
+                            <p className="text-sm font-semibold text-text-subtle">Try selecting another category.</p>
                         </div>
                     )}
 
@@ -115,7 +115,7 @@ export default function WindowProject() {
                                     className="mt-3 cursor-pointer flex items-center gap-1"
                                 >
                                     <h3 className="text-sm font-bold leading-tight text-highlight">
-                                        Mais Detalhes
+                                        More details
                                     </h3>
                                     <ArrowDown className="h-5 w-5 text-highlight" />
                                 </OpenButton>
@@ -126,7 +126,7 @@ export default function WindowProject() {
 
                 <section className="py-7">
                     <div className="mb-5 flex items-center gap-4">
-                        <h2 className="text-xl font-bold text-text-heading">tech stack & tecnologias</h2>
+                        <h2 className="text-xl font-bold text-text-heading">tech stack & technologies</h2>
                         <span className="h-px flex-1 border-t border-dashed border-border-muted" />
                     </div>
 
@@ -148,14 +148,14 @@ export default function WindowProject() {
 
                 <footer className="flex flex-col">
                     <div className="rounded-sm border border-dashed border-border-muted bg-window p-4">
-                        <h3 className="mb-2 text-base font-bold text-highlight">conteudo extra</h3>
+                        <h3 className="mb-2 text-base font-bold text-highlight">extra content</h3>
 
                         <div className="flex items-start gap-3">
                             <div>
                                 <ul className="list-disc pl-5 text-[12px] font-semibold leading-relaxed text-text-muted">
-                                    <li>repositorios, codigo-fonte e projetos experimentais.</li>
-                                    <li>anotacoes, estudos e diarios de desenvolvimento.</li>
-                                    <li>email para contato.</li>
+                                    <li>repositories, source code, and experimental projects.</li>
+                                    <li>notes, studies, and development journals.</li>
+                                    <li>email for contact.</li>
                                 </ul>
                             </div>
                             <div className="self-stretch border-l border-border-muted" />
@@ -167,7 +167,7 @@ export default function WindowProject() {
                                             key={link.label}
                                             className="rounded-md border border-border-muted bg-window p-4 text-sm font-bold text-text-main 
                                             shadow-chip transition hover:border-highlight hover:text-highlight">
-                                            <a href="#">
+                                            <a href={link.link} target="_blank" rel="noopener noreferrer" className="flex flex-col gap-1">
                                                 <div className="flex gap-1">
                                                     <ExtraIcon className="h-5 w-5 text-highlight" aria-hidden="true" />
                                                     <span className="block text-sm">{link.label}</span>
@@ -209,7 +209,7 @@ export default function WindowProject() {
                                 onClick={() => {
                                     closeProjectDetail();
                                 }}
-                                aria-label="fechar detalhes do projeto"
+                                aria-label="close project details"
                                 className="absolute left-4 cursor-pointer top-4 grid size-8 place-items-center rounded-sm  transition hover:border-highlight hover:text-highlight"
                             >
                                 <ArrowLeft className="h-8  w-8" aria-hidden="true" />
@@ -227,7 +227,7 @@ export default function WindowProject() {
                                 <div className="flex flex-wrap items-center gap-4 text-sm font-bold text-highlight">
                                     <span>status:</span>
                                     <span className="rounded-full border border-border-muted bg-window-panel px-5 py-2 text-text-main">
-                                        concluido
+                                        completed
                                     </span>
                                     <div className="flex gap-3 w-full mt-18">
 
@@ -284,11 +284,7 @@ export default function WindowProject() {
                                                 {projectSelected.category}
                                             </div>
                                         </div>
-
                                     </div>
-
-
-
                                     <div className="my-6 border-t border-dashed border-border-muted" />
 
                                     <h3 className="mb-3 text-base font-bold text-highlight">tecnologias</h3>

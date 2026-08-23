@@ -32,17 +32,21 @@ export const extraLinks = [
     label: "github",
     icon: GithubIcon,
     text: "github.com/samgomes-dev",
-  },
-  {
-    label: "notion",
-    icon: Notion,
-    text: "espaço para pesquisa e estudos",
+    link:"https://github.com/I-Samuel-I",
   },
   {
     label: "email",
     icon: Mail,
     text: "samgomes.dev@gmail.com",
+    link: "mailto:samgomes.dev@gmail.com",
   },
+  {
+    label: "notion",
+    icon: Notion,
+    text: "space for research and studies",
+    link: "https://www.notion.so/samgomes-dev",
+  },
+  
 ];
 
 export type TechStackIcon = ComponentType<SVGProps<SVGSVGElement>>;

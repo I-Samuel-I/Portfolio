@@ -6,3 +6,12 @@ export const sounds = {
   musicTheme01:"/sounds/musicTheme01.mp3",
   musicTheme02:"/sounds/musicTheme02.mp3"
 };
+
+export const typingSounds = {
+  typing01: "/sounds/t1.mp3",
+  typing02: "/sounds/t2.mp3",
+  typing03: "/sounds/t3.mp3",
+  typing04: "/sounds/t4.mp3",
+  typing05: "/sounds/t5.mp3",
+  typing06: "/sounds/t6.mp3",
+}

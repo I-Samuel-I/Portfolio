@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "./theme/index.css";
 
+
 body {
   background: var(--background);
   color: var(--text-color);
@@ -31,4 +32,10 @@ body {
 }
 .scroll-css::-webkit-scrollbar-thumb:hover {
   background: var(--scrollbar-thumb-hover);
+}
+
+select{
+  appearance: none;
+  -webkit-apperance: none;
+  -moz-apperance: none;
 }
