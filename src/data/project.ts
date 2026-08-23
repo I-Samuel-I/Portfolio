@@ -217,8 +217,7 @@ export const projects = [
     id: 2,
     title: "GestIO",
     category: "web",
-    description:
-      "A full-stack business management platform for controlling sales, clients, products, stock, finance, dashboards, and PDF reports in one workflow.",
+    descriptionKey: "gestio",
     image: Screen02,
     status: "finished",
     date: "2026",
@@ -229,8 +228,7 @@ export const projects = [
     id: 3,
     category: "web",
     title: "Midnight Rose",
-    description:
-      "A fan-made website dedicated to Ado, presenting her music, visual identity, career highlights, and a contact experience with a dark, expressive interface.",
+    descriptionKey: "midnightRose",
     image: Screen01,
     status: "finished",
     date: "2025",
@@ -242,8 +240,7 @@ export const projects = [
     id: 4,
     category: "web",
     title: "Taitattoo",
-    description:
-      "A landing page for a tattoo artist, focused on presenting her visual identity, tattoo style, portfolio highlights, and an easy path for clients to get in touch.",
+    descriptionKey: "taitattoo",
     image: Screen03,
     status: "finished",
     date: "2025",
@@ -254,8 +251,7 @@ export const projects = [
     id: 5,
     category: "web",
     title: "Spirited-Away",
-    description:
-      "A fan website inspired by Spirited Away, combining atmospheric visuals, themed sections, and references to the movie's world to create an immersive tribute.",
+    descriptionKey: "spiritedAway",
     image: Screen04,
     status: "finished",
     date: "2024",
@@ -267,8 +263,7 @@ export const projects = [
     id: 6,
     category: "web",
     title: "Music Legends",
-    description:
-      "A League of Legends inspired music player concept, mixing champion-themed aesthetics with playlist navigation and an interface built around a game-like mood.",
+    descriptionKey: "musicLegends",
     image: Screen05,
     status: "finished",
     date: "2024",
@@ -280,8 +275,7 @@ export const projects = [
     id: 1,
     category: "web",
     title: "Esolvere",
-    description:
-      "A corporate website for eSolvere Tecnologia, presenting industrial automation solutions for real-time factory monitoring, OEE visibility, Solve I/O, and maintenance management.",
+    descriptionKey: "esolvere",
     image: Screen06,
     status: "finished",
     date: "2026",
@@ -292,8 +286,7 @@ export const projects = [
     id: 7,
     category: "web",
     title: "Ligada",
-    description:
-      "A web project for Ligada, structured to present the initiative clearly, organize its main information, and guide visitors toward the most important actions.",
+    descriptionKey: "ligada",
     image: Screen07,
     status: "finished",
     date: "2025",

@@ -1,18 +1,22 @@
-﻿import DarkMode from "../components/atoms/darkMode";
+﻿"use client";
+
+import DarkMode from "../components/atoms/darkMode";
 import LanguageBtn from "../components/atoms/languageSwitcher";
 import Links from "../components/atoms/links";
 import MusicButton from "../components/atoms/musicButton";
 import BatPhysicsPrototype from "../components/organisms/batPhysics";
 import HomeNavigation from "../components/organisms/homeNavigation";
+import { useTranslation } from "../i18n/useTranslation";
 
 export default function Home() {
+  const { t } = useTranslation();
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-app-bg">
       <main className="relative flex min-h-[940px] w-full max-w-[1850px] flex-col overflow-hidden rounded-[22px] border border-border-main bg-shell shadow-2xl shadow-black/50">
         <header className="z-10 flex h-[72px] shrink-0 items-center justify-between border-b border-border-muted bg-shell-header px-8 sm:px-9">
           <span className="text-xl font-medium tracking-normal text-text-main">
-            MoonThread
+            {t.common.brand}
           </span>
           <div className="flex flex-row gap-5 mr-5">
             <LanguageBtn />
@@ -27,15 +31,15 @@ export default function Home() {
         <section className="grid flex-1 grid-cols-1 gap-10 px-16 py-24  lg:grid-cols-[minmax(280px,0.78fr)_minmax(360px,1fr)]">
           <div className="flex  flex-col justify-start pt-5 sm:pt-3">
             <h1 className="text-6xl font-normal leading-tight tracking-normal text-text-heading">
-              Hi! I&apos;m Samuel
+              {t.home.title}
             </h1>
             <p className="mt-3 text-xl font-normal text-text-muted">
-              Web Developer &amp; Mobile Developer
+              {t.home.role}
             </p>
 
             <div className="mt-10 flex w-fit flex-col items-center text-text-main">
               <span className="text-3xl font-normal tracking-normal">
-                [ enter ]
+                {t.common.enter}
               </span>
               <span className="mt-2 text-4xl leading-none" aria-hidden="true">
                 &#8595;

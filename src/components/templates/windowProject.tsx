@@ -10,9 +10,10 @@ import { projectsFilters, projects, techStacks, extraLinks, techIconAliases } fr
 import { useState } from "react";
 import CloseButton from "../atoms/closeBtn";
 import OpenButton from "../atoms/openBtn";
+import { useTranslation } from "@/src/i18n/useTranslation";
 
 export default function WindowProject() {
-
+    const { t } = useTranslation();
     const [moreDetails, setMoreDetails] = useState<number | null>(null);
     const [categorySelect, setCategorySelect] = useState<string>("all");
 
@@ -61,14 +62,12 @@ export default function WindowProject() {
                             <OpenButton
                                 key={filter}
                                 type="button"
-                                onClick={() =>
-
-                                    setCategorySelect(filter)}
+                                onClick={() => setCategorySelect(filter)}
                                 className={`h-10 min-w-24 rounded-md border px-6 text-sm font-bold transition 
                                 border-border-muted bg-window text-text-main hover:border-highlight 
                                 hover:text-highlight cursor-pointer 
                                 ${categorySelect === filter ? "border-highlight bg-button-bg text-highlight" : ""}`}>
-                                {filter}
+                                {t.project.filters[filter as "all" | "web" | "mobile"]}
                             </OpenButton>
                         ))}
                     </div>
@@ -78,8 +77,8 @@ export default function WindowProject() {
 
                     {filteredProjects.length === 0 && (
                         <div className="col-span-full flex flex-col items-center justify-center gap-3 rounded-md border border-border-muted bg-window p-6 text-text-main">
-                            <h3 className="text-lg font-bold text-text-heading">No projects found</h3>
-                            <p className="text-sm font-semibold text-text-subtle">Try selecting another category.</p>
+                            <h3 className="text-lg font-bold text-text-heading">{t.project.noProjects}</h3>
+                            <p className="text-sm font-semibold text-text-subtle">{t.project.tryAnother}</p>
                         </div>
                     )}
 
@@ -115,7 +114,7 @@ export default function WindowProject() {
                                     className="mt-3 cursor-pointer flex items-center gap-1"
                                 >
                                     <h3 className="text-sm font-bold leading-tight text-highlight">
-                                        More details
+                                        {t.project.moreDetails}
                                     </h3>
                                     <ArrowDown className="h-5 w-5 text-highlight" />
                                 </OpenButton>
@@ -126,7 +125,7 @@ export default function WindowProject() {
 
                 <section className="py-7">
                     <div className="mb-5 flex items-center gap-4">
-                        <h2 className="text-xl font-bold text-text-heading">tech stack & technologies</h2>
+                        <h2 className="text-xl font-bold text-text-heading">{t.project.techStack}</h2>
                         <span className="h-px flex-1 border-t border-dashed border-border-muted" />
                     </div>
 
@@ -148,14 +147,14 @@ export default function WindowProject() {
 
                 <footer className="flex flex-col">
                     <div className="rounded-sm border border-dashed border-border-muted bg-window p-4">
-                        <h3 className="mb-2 text-base font-bold text-highlight">extra content</h3>
+                        <h3 className="mb-2 text-base font-bold text-highlight">{t.project.extraContent}</h3>
 
                         <div className="flex items-start gap-3">
                             <div>
                                 <ul className="list-disc pl-5 text-[12px] font-semibold leading-relaxed text-text-muted">
-                                    <li>repositories, source code, and experimental projects.</li>
-                                    <li>notes, studies, and development journals.</li>
-                                    <li>email for contact.</li>
+                                    {t.project.extraList.map((item) => (
+                                        <li key={item}>{item}</li>
+                                    ))}
                                 </ul>
                             </div>
                             <div className="self-stretch border-l border-border-muted" />
@@ -209,7 +208,7 @@ export default function WindowProject() {
                                 onClick={() => {
                                     closeProjectDetail();
                                 }}
-                                aria-label="close project details"
+                                aria-label={t.project.closeDetails}
                                 className="absolute left-4 cursor-pointer top-4 grid size-8 place-items-center rounded-sm  transition hover:border-highlight hover:text-highlight"
                             >
                                 <ArrowLeft className="h-8  w-8" aria-hidden="true" />
@@ -225,9 +224,9 @@ export default function WindowProject() {
                                 </div>
 
                                 <div className="flex flex-wrap items-center gap-4 text-sm font-bold text-highlight">
-                                    <span>status:</span>
+                                    <span>{t.project.status}</span>
                                     <span className="rounded-full border border-border-muted bg-window-panel px-5 py-2 text-text-main">
-                                        completed
+                                        {t.common.completed}
                                     </span>
                                     <div className="flex gap-3 w-full mt-18">
 
@@ -239,7 +238,7 @@ export default function WindowProject() {
                                                 <OpenButton className="flex flex-1 h-12  items-center justify-center gap-3 rounded-md border border-border-muted 
                                             bg-window-panel px-4 text-[16px] font-bold text-highlight ">
                                                     <SiteIcon className="h-7 w-7" aria-hidden="true" />
-                                                    <p>site</p>
+                                                    <p>{t.common.site}</p>
                                                 </OpenButton>
                                             </a>)
                                         }
@@ -252,7 +251,7 @@ export default function WindowProject() {
                                                 <OpenButton className="flex flex-1 h-12 items-center justify-center gap-2 rounded-md border border-border-muted 
                                             bg-window-panel px-4 text-[16px] font-bold text-highlight transition">
                                                     <GithubIcon className="h-7 w-7" aria-hidden="true" />
-                                                    <p>github</p>
+                                                    <p>{t.common.github}</p>
                                                 </OpenButton>
                                             </a>
 
@@ -276,10 +275,10 @@ export default function WindowProject() {
                                     </div>
                                     <div className="flex flex-col gap-3">
                                         <p className="max-w-xl text-base font-semibold leading-relaxed text-text-muted">
-                                            {projectSelected.description}
+                                            {t.project.descriptions[projectSelected.descriptionKey as keyof typeof t.project.descriptions]}
                                         </p>
                                         <div className="flex flex-wrap items-center gap-2">
-                                            <p className="text-sm font-bold text-text-main">category: </p>
+                                            <p className="text-sm font-bold text-text-main">{t.common.category}: </p>
                                             <div className="rounded-sm border w-fit border-border-muted bg-window-panel px-4 py-2 text-sm font-bold text-highlight">
                                                 {projectSelected.category}
                                             </div>
@@ -287,7 +286,7 @@ export default function WindowProject() {
                                     </div>
                                     <div className="my-6 border-t border-dashed border-border-muted" />
 
-                                    <h3 className="mb-3 text-base font-bold text-highlight">tecnologias</h3>
+                                    <h3 className="mb-3 text-base font-bold text-highlight">{t.common.technologies}</h3>
                                     <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-3">
                                         {modalTechs.map((tech) => {
                                             const TechIcon = tech.icons;

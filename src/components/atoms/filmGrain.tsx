@@ -18,11 +18,19 @@ export default function FilmGrain() {
         let lastTime = 0;
 
         function resize() {
-            canvas.width = Math.ceil(window.innerWidth * scale);
-            canvas.height = Math.ceil(window.innerHeight * scale);
+            const activeCanvas = canvasRef.current;
+            if (!activeCanvas) return;
+
+            activeCanvas.width = Math.ceil(window.innerWidth * scale);
+            activeCanvas.height = Math.ceil(window.innerHeight * scale);
         }
 
         function draw(time: number) {
+            const canvas = canvasRef.current;
+            if (!canvas) return;
+            const ctx = canvas.getContext("2d");
+            if (!ctx) return;
+            
             if (time - lastTime > 1000 / fps) {
                 const imageData = ctx.createImageData(canvas.width, canvas.height);
                 const data = imageData.data;

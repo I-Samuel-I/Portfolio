@@ -40,15 +40,14 @@ export default function DraggableWindow({ title, onClose, onFocus, isFocused }: 
             {...windowProps}
             initial={{ opacity: 0, scale: 0.90 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.1 }}
+            transition={{ duration: 0.2 }}
             exit={{
                 opacity: 0, scale: 0.90, x: -30,
             }}
             className={`pointer-events-auto absolute flex ${windowSize[title]}
             ${isFocused ? "z-10" : "z-0"}
             flex-col overflow-hidden rounded-window border border-border-muted
-            bg-window text-text-main shadow-window`}
-        >
+            bg-window text-text-main shadow-window`}>
             <div
                 {...dragHandleProps}
                 className={`flex select-none touch-none items-center justify-between border-b border-border-muted bg-window-header px-5 py-3

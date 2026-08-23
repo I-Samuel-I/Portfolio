@@ -3,19 +3,26 @@
 import LanguageIcon from "@/src/assets/icons/earth.svg"
 import { useState } from "react"
 import { sounds } from "../../data/sounds"
+import { useTranslation } from "@/src/i18n/useTranslation"
 
 export default function LanguageBtn() {
     const [moreOptions, setMoreOptions] = useState(false);
     const [isHolding, setIsHolding] = useState(false)
-
+    const { setLanguage, t } = useTranslation();
 
     const toggleOptions = () => {
         setMoreOptions((current) => !current)
     }
+
     const playOpenSound = () => {
         const audio = new Audio(sounds.openWindow)
         audio.volume = 0.45
         audio.play();
+    }
+
+    const handleLanguageChange = (nextLanguage: "pt" | "en") => {
+        setLanguage(nextLanguage);
+        setMoreOptions(false);
     }
 
     return (
@@ -30,7 +37,7 @@ export default function LanguageBtn() {
                 onPointerUp={() => setIsHolding(false)}
                 onPointerLeave={() => setIsHolding(false)}
                 onPointerCancel={() => setIsHolding(false)}
-                aria-label="Selecionar idioma"
+                aria-label={t.common.language}
                 aria-expanded={moreOptions}
                 className={`${isHolding ? "scale-80" : "scale-100"}
                 flex h-9 w-9 cursor-pointer items-center justify-center transition-all duration-200`}>
@@ -44,20 +51,20 @@ export default function LanguageBtn() {
                     bg-window-header" />
                     <button
                         type="button"
-                        onClick={() => setMoreOptions(false)}
+                        onClick={() => handleLanguageChange("en")}
                         className=" cursor-pointer flex w-full items-center px-3 py-2 text-left text-xm font-normal tracking-normal 
                         text-text-main transition-colors duration-200 hover:bg-window-panel"
                     >
-                        English
+                        {t.common.english}
                     </button>
                     <div className="mx-1 h-px bg-border-soft" />
                     <button
                         type="button"
-                        onClick={() => setMoreOptions(false)}
+                        onClick={() => handleLanguageChange("pt")}
                         className="  cursor-pointer flex w-full items-center px-3 py-2 text-left text-xm font-normal tracking-normal 
                         text-text-main transition-colors duration-200 hover:bg-window-panel"
                     >
-                        Portugues
+                        {t.common.portuguese}
                     </button>
                 </div>
             )}

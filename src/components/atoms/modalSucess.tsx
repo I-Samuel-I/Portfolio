@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import OpenButton from "../atoms/openBtn";
+import { motion } from "motion/react"
 
 type ModalSuccessProps = {
   open: boolean;
@@ -21,7 +22,13 @@ export default function ModalSuccess({
   if (!open) return null;
 
   return (
-    <div
+    <motion.div
+            initial={{ opacity: 0, scale: 0.90 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.2 }}
+            exit={{
+                opacity: 0, scale: 0.90, x: -30,
+            }}
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/55 p-4 backdrop-blur-[2px]"
       onClick={onClose}
       role="dialog"
@@ -53,6 +60,6 @@ export default function ModalSuccess({
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
