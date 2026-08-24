@@ -9,7 +9,7 @@ export default function WindowAbout() {
     const { t } = useTranslation();
 
     return (
-        <section className="scroll-css h-full w-full overflow-y-auto rounded-md bg-window p-6 text-text-main">
+        <section className="scroll-css h-full w-full overflow-y-auto rounded-md bg-window p-4 sm:p-6 text-text-main">
             <article className="flex flex-col gap-6 border-b border-border-muted pb-6 md:flex-row ">
                 <div className="mx-auto flex w-full  items-center justify-center">
                     <Image
@@ -17,7 +17,7 @@ export default function WindowAbout() {
                         alt="Samuel Gomes"
                         width={300}
                         height={300}
-                        className="h-90 w-90 rounded-full  object-cover"
+                        className="h-48 w-48 sm:h-64 sm:w-64 md:h-72 md:w-72 rounded-full object-cover"
                     />
                 </div>
                 <div className="flex w-full flex-col">
@@ -36,7 +36,7 @@ export default function WindowAbout() {
                     </div>
                 </div>
             </article>
-            <article className="flex flex-row  gap-4 border-b  border-border-muted py-6">
+            <article className="grid grid-cols-1 gap-3 border-b border-border-muted py-6 sm:grid-cols-3 sm:gap-4">
                 <div className="inline-flex w-full h-12  items-center justify-center gap-3 rounded-md border-2 border-border-muted bg-window-panel px-4 text-sm font-bold text-text-main shadow-chip">
                     <HtmlTag className="h-7 w-7 text-highlight" />
                     <span>{t.about.cards.web}</span>

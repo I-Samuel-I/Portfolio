@@ -13,24 +13,25 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-app-bg">
-      <main className="relative flex min-h-[940px] w-full max-w-[1850px] flex-col overflow-hidden rounded-[22px] border border-border-main bg-shell shadow-2xl shadow-black/50">
-        <header className="z-10 flex h-[72px] shrink-0 items-center justify-between border-b border-border-muted bg-shell-header px-8 sm:px-9">
+      <main
+        className="relative flex min-h-[100dvh] lg:min-h-[min(940px,100dvh)] w-full max-w-[1200px] md:max-w-[1800px] flex-col overflow-hidden rounded-none sm:rounded-[18px] md:rounded-[22px] border border-border-main bg-shell shadow-2xl shadow-black/50"
+      >
+        <header className="z-10 flex h-14 md:h-[72px] shrink-0 items-center justify-between border-b border-border-muted bg-shell-header px-4 sm:px-6 md:px-8">
           <span className="text-xl font-medium tracking-normal text-text-main">
             {t.common.brand}
           </span>
-          <div className="flex flex-row gap-5 mr-5">
+          <div className="flex items-center gap-3 sm:gap-5 mr-2 sm:mr-5">
             <LanguageBtn />
             <DarkMode />
           </div>
         </header>
-
-        <div className="pointer-events-auto absolute right-0 bottom-14 top-[72px] z-0 w-[70%] border border-border-soft">
+        <div className="pointer-events-auto absolute right-0 bottom-14 top-0 z-0 w-[70%] md:w-[60%] lg:w-[70%] hidden sm:block">
           <BatPhysicsPrototype />
         </div>
 
-        <section className="grid flex-1 grid-cols-1 gap-10 px-16 py-24  lg:grid-cols-[minmax(280px,0.78fr)_minmax(360px,1fr)]">
+        <section className="grid flex-1 grid-cols-1 gap-8 px-6 sm:px-10 md:px-16 py-12 sm:py-20 lg:grid-cols-[minmax(280px,0.78fr)_minmax(360px,1fr)]">
           <div className="flex  flex-col justify-start pt-5 sm:pt-3">
-            <h1 className="text-6xl font-normal leading-tight tracking-normal text-text-heading">
+            <h1 className="text-5xl sm:text-6xl font-normal leading-tight tracking-normal text-text-heading">
               {t.home.title}
             </h1>
             <p className="mt-3 text-xl font-normal text-text-muted">
@@ -50,13 +51,15 @@ export default function Home() {
           </div>
         </section>
 
-        <footer className="flex h-14 shrink-0 items-center justify-between border-t border-border-muted bg-shell-header px-10 sm:px-12">
-          <MusicButton />
-          <Links />
+        <footer className="flex flex-col sm:flex-row h-auto sm:h-14 shrink-0 items-center justify-between border-t border-border-muted bg-shell-header px-4 sm:px-10 py-3 sm:py-0 gap-3">
+          <div className="w-full sm:w-auto flex items-center justify-start">
+            <MusicButton />
+          </div>
+          <div className="w-full sm:w-auto flex items-center justify-end">
+            <Links />
+          </div>
         </footer>
       </main>
     </div>
   );
 }
-
-

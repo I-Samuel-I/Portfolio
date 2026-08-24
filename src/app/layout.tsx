@@ -4,8 +4,10 @@ import FilmGrain from "../components/atoms/filmGrain";
 import "../styles/globals.css";
 
 export const metadata: Metadata = {
-  title: "Test",
-  description: "Test",
+  title: "Portfolio - Samuel Gomes",
+  description: "Portfolio - Samuel Gomes",
+  openGraph:{title:"Site"},
+  twitter:{}
 };
 
 export const satoshiFont = localFont({

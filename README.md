@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Samuel Gomes Portfolio
 
-## Getting Started
+> 🟡 Status: In Progress
 
-First, run the development server:
+This repository contains the personal portfolio website of **Samuel Gomes**, a web/mobile developer. It presents selected web and mobile projects, professional background, technology stack, and a contact form for new opportunities.
+
+The interface is inspired by a desktop workspace: visitors can open and drag interactive windows for the About, Projects, and Contact sections. It also includes dark mode, language switching, sound effects, and responsive layouts for mobile, tablet, and desktop devices.
+
+## 💻 Repository
+
+[https://github.com/I-Samuel-I/Portfolio](https://github.com/I-Samuel-I/Portfolio)
+
+## ✨ Features
+
+- Responsive interface for mobile, tablet, and desktop
+- Draggable section windows
+- Project filtering and detailed project modals
+- Portuguese and English language support
+- Dark mode and interface sound controls
+- Animated visual elements powered by Matter.js and Motion
+- Contact form with validation, email delivery, and rate limiting
+
+## 📋 Requirements
+
+To run this project locally, make sure you have **Node.js** and **npm** installed.
+
+## 🔗 Clone the repository
+
+```bash
+git clone https://github.com/I-Samuel-I/Portfolio.git
+cd Portfolio
+```
+
+## ⚙️ Installation
+
+Install the dependencies:
+
+```bash
+npm install
+```
+
+## 🚀 Getting Started
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To create a production build:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/getting-started/fonts) to automatically optimize and load the local Satoshi font.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## 🔐 Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+The contact form requires the following services to be configured in a local `.env` file:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+RESEND_API_KEY=your_resend_api_key
+UPSTASH_REDIS_REST_URL=your_upstash_redis_url
+UPSTASH_REDIS_REST_TOKEN=your_upstash_redis_token
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠 Built With
 
-## Deploy on Vercel
+- ▲ [Next.js](https://nextjs.org/) – React framework for the application
+- ⚛️ [React](https://react.dev/) – User interface library
+- 🔷 [TypeScript](https://www.typescriptlang.org/) – Typed JavaScript
+- 🎨 [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS framework
+- 🎬 [Motion](https://motion.dev/) – UI animations
+- ⚙️ [Matter.js](https://brm.io/matter-js/) – Physics engine for interactive elements
+- ✉️ [Resend](https://resend.com/) – Contact form email delivery
+- 🛡️ [Upstash Ratelimit](https://upstash.com/docs/redis/sdks/ratelimit-ts/overview) – Contact endpoint rate limiting
+- ✅ [Zod](https://zod.dev/) – Form data validation
+- ▲ [Vercel](https://vercel.com/) – Recommended deployment platform
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Version
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Current version: **v0.1.0**
+
+## Author
+
+- **Samuel Gomes** – _Front-end Developer_ – [I-Samuel-I](https://github.com/I-Samuel-I)
+
+## 🌐 Contact
+
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/I-Samuel-I)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/samuel-gomes-481062316/)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:samgomes.dev@gmail.com)

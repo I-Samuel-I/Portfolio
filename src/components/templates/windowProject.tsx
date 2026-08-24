@@ -55,7 +55,7 @@ export default function WindowProject() {
 
     return (
         <section className="relative h-full w-full overflow-hidden rounded-md bg-window text-text-main">
-            <div className={`scroll-css h-full w-full p-6 ${projectSelected ? "overflow-hidden" : "overflow-y-auto"}`}>
+            <div className={`scroll-css h-full w-full p-4 sm:p-6 ${projectSelected ? "overflow-hidden" : "overflow-y-auto"}`}>
                 <header className="mb-7 grid gap-5 md:grid-cols-[1fr_220px] md:items-start">
                     <div className="flex flex-wrap gap-4">
                         {projectsFilters.map((filter) => (
@@ -149,16 +149,16 @@ export default function WindowProject() {
                     <div className="rounded-sm border border-dashed border-border-muted bg-window p-4">
                         <h3 className="mb-2 text-base font-bold text-highlight">{t.project.extraContent}</h3>
 
-                        <div className="flex items-start gap-3">
-                            <div>
+                        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-3">
+                            <div className="min-w-0">
                                 <ul className="list-disc pl-5 text-[12px] font-semibold leading-relaxed text-text-muted">
                                     {t.project.extraList.map((item) => (
                                         <li key={item}>{item}</li>
                                     ))}
                                 </ul>
                             </div>
-                            <div className="self-stretch border-l border-border-muted" />
-                            <div className="grid flex-1 gap-3 max-h-25 sm:grid-cols-3">
+                            <div className="hidden self-stretch border-l border-border-muted sm:block" />
+                            <div className="grid flex-1 gap-3 sm:grid-cols-3">
                                 {extraLinks.map((link) => {
                                     const ExtraIcon = link.icon
                                     return (
@@ -201,7 +201,7 @@ export default function WindowProject() {
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.96, y: 12 }}
                             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                            className="scroll-css relative grid max-h-[calc(100%-2rem)] w-full max-w-6xl gap-7 overflow-y-auto rounded-md border border-border-muted bg-window p-4 pt-14 text-text-main shadow-window md:grid-cols-[1.25fr_0.9fr]"
+                            className="scroll-css relative grid max-h-[calc(100%_-_1.5rem)] w-full max-w-6xl gap-6 overflow-y-auto rounded-md border border-border-muted bg-window p-4 pt-14 text-text-main shadow-window lg:grid-cols-[1.25fr_0.9fr]"
                         >
                             <CloseButton
                                 type="button"
@@ -215,7 +215,7 @@ export default function WindowProject() {
                             </CloseButton>
 
                             <div className="flex flex-col justify gap-4">
-                                <div className="w-full overflow-hidden rounded-md border border-border-muted bg-window-panel p-2 shadow-panel md:min-w-[520px]">
+                                <div className="w-full overflow-hidden rounded-md border border-border-muted bg-window-panel p-2 shadow-panel lg:min-w-[520px]">
                                     <Image
                                         src={projectSelected.image}
                                         alt={`Preview do projeto ${projectSelected.title}`}
@@ -228,7 +228,7 @@ export default function WindowProject() {
                                     <span className="rounded-full border border-border-muted bg-window-panel px-5 py-2 text-text-main">
                                         {t.common.completed}
                                     </span>
-                                    <div className="flex gap-3 w-full mt-18">
+                                    <div className="mt-6 flex w-full flex-col gap-3 sm:flex-row">
 
                                         {projectSelected.link && (
                                             <a className="flex items-center gap-2 flex-1"

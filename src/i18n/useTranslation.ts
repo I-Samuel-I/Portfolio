@@ -5,20 +5,26 @@ import { translation } from "./translation";
 
 export type SupportedLanguage = keyof typeof translation;
 
-export const DEFAULT_LANGUAGE: SupportedLanguage = "en";
 
 const STORAGE_KEY = "portfolio-language";
 const LANGUAGE_EVENT = "portfolio-language-change";
 
 export function getStoredLanguage(): SupportedLanguage {
-  if (typeof window === "undefined") return DEFAULT_LANGUAGE;
+  if (typeof window === "undefined") return "en";
 
   const stored = window.localStorage.getItem(STORAGE_KEY);
-  return stored === "pt" || stored === "en" ? stored : DEFAULT_LANGUAGE;
+  return stored === "pt" || stored === "en" ? stored : "en";
 }
 
 export function useTranslation() {
-  const [language, setLanguageState] = useState<SupportedLanguage>(() => getStoredLanguage());
+  const [language, setLanguageState] = useState<SupportedLanguage>("en");
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  useEffect(() => {
+    const stored = getStoredLanguage();
+    setLanguageState(stored);
+    setIsHydrated(true);
+  }, []);
 
   const setLanguage = (nextLanguage: SupportedLanguage) => {
     setLanguageState(nextLanguage);
@@ -55,6 +61,6 @@ export function useTranslation() {
   return {
     language,
     setLanguage,
-    t: translation[language],
+    t: isHydrated ? translation[language] : translation.en,
   };
 }

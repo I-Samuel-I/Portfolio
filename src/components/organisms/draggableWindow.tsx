@@ -12,16 +12,16 @@ import CloseBtn from "@/src/assets/icons/close.svg"
 import { sounds } from "../../data/sounds";
 
 type DraggableWindowProps = {
-    title: string;
+    title: WindowType;
     onClose: () => void;
     onFocus: () => void;
     isFocused: boolean;
 }
 
 const windowSize: Record<WindowType, string> = {
-    about: "h-190 w-230",
-    projects: "h-190 w-250",
-    contact: "h-180 w-190",
+    about: "h-[calc(100dvh_-_1.5rem)] w-[calc(100vw_-_1.5rem)] lg:h-190 lg:w-230",
+    projects: "h-[calc(100dvh_-_1.5rem)] w-[calc(100vw_-_1.5rem)] lg:h-190 lg:w-250",
+    contact: "h-[calc(100dvh_-_1.5rem)] w-[calc(100vw_-_1.5rem)] lg:h-180 lg:w-190",
 };
 
 export default function DraggableWindow({ title, onClose, onFocus, isFocused }: DraggableWindowProps) {
@@ -50,8 +50,8 @@ export default function DraggableWindow({ title, onClose, onFocus, isFocused }: 
             bg-window text-text-main shadow-window`}>
             <div
                 {...dragHandleProps}
-                className={`flex select-none touch-none items-center justify-between border-b border-border-muted bg-window-header px-5 py-3
-                pb-2 text-[20px] ${isDragging ? "cursor-grabbing" : "cursor-grab"
+                className={`flex select-none items-center justify-between border-b border-border-muted bg-window-header px-4 sm:px-5 py-3
+                pb-2 text-[18px] sm:text-[20px] ${isDragging ? "cursor-grabbing" : "cursor-default md:cursor-grab"
                     }`}>
                 <h1>{title}</h1>
                 <motion.button

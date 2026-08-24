@@ -26,9 +26,3 @@ export const SOCIAL = [
     Icon: MailIcon,
   },
 ];
-
-export const SITES = [
-    {
-        
-    }
-]
