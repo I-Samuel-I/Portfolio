@@ -44,7 +44,7 @@ export default function DraggableWindow({ title, onClose, onFocus, isFocused }: 
             exit={{
                 opacity: 0, scale: 0.90, x: -30,
             }}
-            className={`pointer-events-auto absolute flex ${windowSize[title]}
+            className={`draggable-window draggable-window--${title} pointer-events-auto absolute flex ${windowSize[title]}
             ${isFocused ? "z-10" : "z-0"}
             flex-col overflow-hidden rounded-window border border-border-muted
             bg-window text-text-main shadow-window`}>

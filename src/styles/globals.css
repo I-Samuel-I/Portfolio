@@ -28,6 +28,23 @@ body {
   }
 }
 
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .draggable-window--about {
+    width: min(770px, calc(100vw - 5rem));
+    height: min(570px, calc(100dvh - 6rem));
+  }
+
+  .draggable-window--projects {
+    width: min(850px, calc(100vw - 5rem));
+    height: min(570px, calc(100dvh - 6rem));
+  }
+
+  .draggable-window--contact {
+    width: min(610px, calc(100vw - 5rem));
+    height: min(570px, calc(100dvh - 6rem));
+  }
+}
+
 .film-grain {
   position: fixed;
   inset: 0;

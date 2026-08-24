@@ -5,6 +5,8 @@ import Matter from "matter-js";
 
 const DEFAULT_BOX_SIZE = 300;
 const SMALL_NOTEBOOK_BOX_SIZE = 250;
+const DEFAULT_ROPE_LENGTH = 350;
+const SMALL_NOTEBOOK_ROPE_LENGTH = 275;
 
 export default function BatPhysicsPrototype() {
   const sceneRef = useRef<HTMLDivElement | null>(null);
@@ -27,11 +29,15 @@ export default function BatPhysicsPrototype() {
 
     const width = sceneRef.current.clientWidth || 600;
     const height = sceneRef.current.clientHeight || 520;
-    const boxSize = window.matchMedia(
+    const isSmallNotebook = window.matchMedia(
       "(min-width: 1024px) and (max-width: 1440px)"
-    ).matches
+    ).matches;
+    const boxSize = isSmallNotebook
       ? SMALL_NOTEBOOK_BOX_SIZE
       : DEFAULT_BOX_SIZE;
+    const ropeLength = isSmallNotebook
+      ? SMALL_NOTEBOOK_ROPE_LENGTH
+      : DEFAULT_ROPE_LENGTH;
     const rootStyles = getComputedStyle(document.documentElement);
     const themeColor = (name: string, fallback: string) => {
       return rootStyles.getPropertyValue(name).trim() || fallback;
@@ -86,7 +92,7 @@ export default function BatPhysicsPrototype() {
         x: -boxSize / 2,
         y: -boxSize / 2,
       },
-      length: 350,
+      length: ropeLength,
       stiffness: 0.9,
       damping: 0.04,
       render: {
@@ -102,7 +108,7 @@ export default function BatPhysicsPrototype() {
         x: boxSize / 2,
         y: -boxSize / 2,
       },
-      length: 350,
+      length: ropeLength,
       stiffness: 0.9,
       damping: 0.04,
       render: {
