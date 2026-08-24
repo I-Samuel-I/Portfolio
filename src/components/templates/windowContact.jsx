@@ -67,8 +67,7 @@ export default function WindowContact() {
               <div className="mt-3 h-0.75 w-64 max-w-full bg-highlight" />
 
               <div className="mt-4 max-w-sm space-y-1 text-base font-semibold leading-relaxed text-text-muted">
-                <p>{t.contact.options.project}</p>
-                <p>{t.contact.options.collaboration}</p>
+             
                 <p>{t.contact.description}</p>
               </div>
             </div>
@@ -122,7 +121,7 @@ export default function WindowContact() {
                 htmlFor="contact-subject"
                 className="mb-2 block text-sm font-bold text-text-main"
               >
-                {t.contact.subject} <span className="text-highlight">*</span>
+                {t.contact.subject}
               </label>
               <div className="relative">
                 <select
@@ -182,7 +181,7 @@ export default function WindowContact() {
             <OpenButton
               disabled={isSubmit}
               type="submit"
-              className="mx-auto cursor-pointer w-full h-13 rounded-md
+              className="mx-auto cursor-pointer w-full h-13 rounded-md 
             bg-button-bg px-8 text-base font-bold text-text-main 
             transition hover:bg-button-bg-hover"
             >

@@ -3,7 +3,8 @@
 import { useEffect, useRef } from "react";
 import Matter from "matter-js";
 
-const BOX_SIZE = 300;
+const DEFAULT_BOX_SIZE = 300;
+const SMALL_NOTEBOOK_BOX_SIZE = 250;
 
 export default function BatPhysicsPrototype() {
   const sceneRef = useRef<HTMLDivElement | null>(null);
@@ -26,6 +27,11 @@ export default function BatPhysicsPrototype() {
 
     const width = sceneRef.current.clientWidth || 600;
     const height = sceneRef.current.clientHeight || 520;
+    const boxSize = window.matchMedia(
+      "(min-width: 1024px) and (max-width: 1440px)"
+    ).matches
+      ? SMALL_NOTEBOOK_BOX_SIZE
+      : DEFAULT_BOX_SIZE;
     const rootStyles = getComputedStyle(document.documentElement);
     const themeColor = (name: string, fallback: string) => {
       return rootStyles.getPropertyValue(name).trim() || fallback;
@@ -41,11 +47,11 @@ export default function BatPhysicsPrototype() {
     engine.gravity.scale = 0.001;
 
     const leftAnchorPoint = {
-      x: width / 2 - BOX_SIZE / 2,
+      x: width / 2 - boxSize / 2,
       y: 0,
     };
     const rightAnchorPoint = {
-      x: width / 2 + BOX_SIZE / 2,
+      x: width / 2 + boxSize / 2,
       y: 0,
     };
 
@@ -57,8 +63,8 @@ export default function BatPhysicsPrototype() {
     const square = Bodies.rectangle(
       squareCenter.x,
       squareCenter.y,
-      BOX_SIZE,
-      BOX_SIZE,
+      boxSize,
+      boxSize,
       {
         label: "Bat placeholder",
         density: 0.001,
@@ -77,8 +83,8 @@ export default function BatPhysicsPrototype() {
       pointA: leftAnchorPoint,
       bodyB: square,
       pointB: {
-        x: -BOX_SIZE / 2,
-        y: -BOX_SIZE / 2,
+        x: -boxSize / 2,
+        y: -boxSize / 2,
       },
       length: 350,
       stiffness: 0.9,
@@ -93,8 +99,8 @@ export default function BatPhysicsPrototype() {
       pointA: rightAnchorPoint,
       bodyB: square,
       pointB: {
-        x: BOX_SIZE / 2,
-        y: -BOX_SIZE / 2,
+        x: boxSize / 2,
+        y: -boxSize / 2,
       },
       length: 350,
       stiffness: 0.9,
@@ -118,7 +124,7 @@ export default function BatPhysicsPrototype() {
       },
     });
 
-    const minSquareCenterY = BOX_SIZE / 2 + 125;
+    const minSquareCenterY = boxSize / 2 + 125;
 
     const limitDragTarget = () => {
       if (mouseConstraint.body !== square) return;

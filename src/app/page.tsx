@@ -12,9 +12,9 @@ export default function Home() {
   const { t } = useTranslation();
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-app-bg">
+    <div className="flex min-h-screen items-center justify-center bg-app-bg sm:h-[100dvh] sm:overflow-hidden sm:p-4 lg:p-5">
       <main
-        className="relative flex min-h-[100dvh] lg:min-h-[min(940px,100dvh)] w-full max-w-[1200px] md:max-w-[1800px] flex-col overflow-hidden rounded-none sm:rounded-[18px] md:rounded-[22px] border border-border-main bg-shell shadow-2xl shadow-black/50"
+        className="relative flex min-h-[100dvh] w-full max-w-[1800px] flex-col overflow-hidden rounded-none border border-border-main bg-shell shadow-2xl shadow-black/50 sm:h-[min(940px,calc(100dvh-2rem))] sm:min-h-0 sm:shrink-0 sm:rounded-[18px] lg:h-[min(940px,calc(100dvh-2.5rem))] md:rounded-[22px]"
       >
         <header className="z-10 flex h-14 md:h-[72px] shrink-0 items-center justify-between border-b border-border-muted bg-shell-header px-4 sm:px-6 md:px-8">
           <span className="text-xl font-medium tracking-normal text-text-main">
@@ -29,16 +29,16 @@ export default function Home() {
           <BatPhysicsPrototype />
         </div>
 
-        <section className="grid flex-1 grid-cols-1 gap-8 px-6 sm:px-10 md:px-16 py-12 sm:py-20 lg:grid-cols-[minmax(280px,0.78fr)_minmax(360px,1fr)]">
-          <div className="flex  flex-col justify-start pt-5 sm:pt-3">
-            <h1 className="text-5xl sm:text-6xl font-normal leading-tight tracking-normal text-text-heading">
+        <section className="grid min-h-0 flex-1 grid-cols-1 gap-8 px-6 py-12 sm:px-10 sm:py-12 md:px-16 lg:py-14 xl:py-20 lg:grid-cols-[minmax(280px,0.78fr)_minmax(360px,1fr)]">
+          <div className="home-content flex flex-col justify-start pt-5 sm:pt-3">
+            <h1 className="home-content__title text-5xl sm:text-5xl 2xl:text-6xl font-normal leading-tight tracking-normal text-text-heading">
               {t.home.title}
             </h1>
             <p className="mt-3 text-xl font-normal text-text-muted">
               {t.home.role}
             </p>
 
-            <div className="mt-10 flex w-fit flex-col items-center text-text-main">
+            <div className="home-entry mt-10 flex w-fit flex-col items-center text-text-main">
               <span className="text-3xl font-normal tracking-normal">
                 {t.common.enter}
               </span>

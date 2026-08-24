@@ -34,7 +34,7 @@ export default function HomeNavigation() {
     const  isTopWindow = activeWindow[activeWindow.length - 1] === focusedWindow;
     return (
         <>
-            <nav className="mt-10 flex w-full max-w-38.5 flex-col gap-6">
+            <nav className="home-navigation mt-10 flex w-full max-w-38.5 flex-col gap-6">
                 <HomeNavBtn onClick={() => openWindow("about")}>{t.nav.about}</HomeNavBtn>
                 <HomeNavBtn onClick={() => openWindow("projects")}>{t.nav.projects}</HomeNavBtn>
                 <HomeNavBtn onClick={() => openWindow("contact")}>{t.nav.contact}</HomeNavBtn>

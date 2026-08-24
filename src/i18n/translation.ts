@@ -63,7 +63,8 @@ export const translation = {
       title: "Sucesso",
       success: "Mensagem enviada com sucesso.",
       heading: "me mande uma mensagem",
-      description: "e eu responderei o mais rápido possível.",
+      description:
+        "Entre em contato para conversarmos sobre projetos, trabalhos freelance ou colaborações. Responderei o mais breve possível.",
       name: "seu nome",
       email: "seu e-mail",
       subject: "assunto",
@@ -185,7 +186,8 @@ export const translation = {
       title: "Success",
       success: "Message sent successfully.",
       heading: "send me a message",
-      description: "and I'll get back to you as soon as possible.",
+      description:
+        "Get in touch to discuss projects, freelance work, or collaborations. I'll get back to you as soon as possible.",
       name: "your name",
       email: "your email",
       subject: "subject",
