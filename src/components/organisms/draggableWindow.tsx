@@ -19,9 +19,14 @@ type DraggableWindowProps = {
 }
 
 const windowSize: Record<WindowType, string> = {
-    about: "h-[calc(100dvh_-_1.5rem)] w-[calc(100vw_-_1.5rem)] lg:h-190 lg:w-230",
-    projects: "h-[calc(100dvh_-_1.5rem)] w-[calc(100vw_-_1.5rem)] lg:h-190 lg:w-250",
-    contact: "h-[calc(100dvh_-_1.5rem)] w-[calc(100vw_-_1.5rem)] lg:h-180 lg:w-190",
+    about:
+        "h-[80dvh] w-[50vw] lg:w-[65vw]",
+
+    projects:
+        "h-[80dvh] w-[100vw] lg:w-[70vw]",
+
+    contact:
+        "h-[70dvh] w-[40vw] lg:w-[50vw] lg:h-[80dvh]",
 };
 
 export default function DraggableWindow({ title, onClose, onFocus, isFocused }: DraggableWindowProps) {

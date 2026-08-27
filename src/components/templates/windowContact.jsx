@@ -74,7 +74,7 @@ export default function WindowContact() {
             <Image
               src={ContactImage}
               alt="Samuel Gomes"
-              className="hidden h-80 w-80 object-cover lg:block"
+              className="h-80 w-80 object-cover lg:block"
             />
           </aside>
 

@@ -3,7 +3,8 @@
 import { useState } from "react";
 import HomeNavBtn from "../atoms/homeNavBtn";
 import DraggableWindow from "./draggableWindow";
-import { AnimatePresence } from "motion/react";
+import MobileWindow from "./mobileWindow";
+import { AnimatePresence, motion } from "motion/react";
 import { useTranslation } from "@/src/i18n/useTranslation";
 
 type NavSection = "about" | "projects" | "contact";
@@ -30,8 +31,7 @@ export default function HomeNavigation() {
     function focusWindow(section: NavSection) {
         setFocusedWindow(section);
     }
-    
-    const  isTopWindow = activeWindow[activeWindow.length - 1] === focusedWindow;
+
     return (
         <>
             <nav className="home-navigation mt-10 flex w-full max-w-38.5 flex-col gap-6">
@@ -39,19 +39,42 @@ export default function HomeNavigation() {
                 <HomeNavBtn onClick={() => openWindow("projects")}>{t.nav.projects}</HomeNavBtn>
                 <HomeNavBtn onClick={() => openWindow("contact")}>{t.nav.contact}</HomeNavBtn>
             </nav>
-            <section className={`
-            fixed pointer-events-none fixed inset-0 z-50 overflow-hidden inset-0 z-50 overflow-hidden ${isTopWindow ? "pointer-events-auto" : "pointer-events-none"}`}>
+
+            {/* Mobile & Tablet */}
+            <section className="pointer-events-none fixed inset-0 z-50 overflow-hidden lg:hidden">
                 <AnimatePresence>
+                    {activeWindow.length > 0 && (
+                        <motion.div
+                            key="mobile-background"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="pointer-events-auto absolute inset-0 z-0 bg-black/45 backdrop-blur-sm"
+                        />
+                    )}
+
                     {activeWindow.map((title) => (
-                        <DraggableWindow
+                        <MobileWindow
                             key={title}
                             title={title}
                             onClose={() => closeWindow(title)}
-                            onFocus={()=> focusWindow(title)}
-                            isFocused={focusedWindow=== title}
                         />
                     ))}
                 </AnimatePresence>
+            </section>
+
+            {/* Desktop */}
+            <section className="pointer-events-none fixed inset-0 z-50 hidden overflow-hidden lg:block">
+
+                {activeWindow.map((title) => (
+                    <DraggableWindow
+                        key={title}
+                        title={title}
+                        onClose={() => closeWindow(title)}
+                        onFocus={() => focusWindow(title)}
+                        isFocused={focusedWindow === title}
+                    />
+                ))}
 
             </section>
 

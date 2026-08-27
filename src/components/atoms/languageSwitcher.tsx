@@ -45,7 +45,7 @@ export default function LanguageBtn() {
             </button>
 
             {moreOptions && (
-                <div className="absolute right-[-12px] top-full z-30 mt-4 w-40 rounded-sm border border-border-main 
+                <div className="absolute right-[-12px] top-full z-50 mt-4 w-40 rounded-sm border border-border-main 
                 bg-window-header px-2 py-2 text-text-main ">
                     <span className="absolute -top-[9px] right-5 h-4 w-4 rotate-45 border-l border-t border-border-main 
                     bg-window-header" />
